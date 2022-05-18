@@ -1,0 +1,26 @@
+package com.kh.common;
+
+import java.io.File;
+
+import com.oreilly.servlet.multipart.FileRenamePolicy;
+
+public class MyFileRenamePolicy implements FileRenamePolicy{
+//rename 하기위해서는 FileRenamePolicy를 인터페이스로 가져와야함
+//rename()=기존의 파일을 전달받아서 파일명 수정작업을 마친 후에 수정된 파일을 반환해주는 메소드
+	@Override
+	public File rename(File originFile) {
+		//원본 파일명
+		String originName = originFile.getName();
+		
+		//수정 파일명 : 파일 업로드 시간(년월일분초) + 5자리 랜덤값(10000~99999)=> 최대한 이름이 겹치지 않게끔작성
+		//확장자 : 원본 파일 그대로
+		
+		//파일업로드 시간 구하기() currentTime
+		
+		String currentTime = new SimpleDateFormat("yyyyMMddHHmmss");
+		
+		return null;
+	}
+	
+
+}

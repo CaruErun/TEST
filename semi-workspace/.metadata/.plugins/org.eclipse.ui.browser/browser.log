@@ -1,0 +1,17 @@
+
+5월 15, 2022 13:34:02.65 NEW SESSION
+5월 15, 2022 13:34:02.65 [16468:19260:0515/133402.643:ERROR:device_event_log_impl.cc(214)] [13:34:02.644] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 15, 2022 13:34:58.68 [16468:19876:0515/133458.685:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+5월 15, 2022 13:36:18.48 [16468:15848:0515/133618.485:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -105
+5월 15, 2022 13:37:06.00 [16468:19260:0515/133706.008:ERROR:device_event_log_impl.cc(214)] [13:37:06.008] USB: usb_service_win.cc:260 Failed to get device driver name: 요소가 없습니다. (0x490)
+5월 15, 2022 13:37:06.73 [16468:15848:0515/133706.736:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+5월 15, 2022 18:34:58.68 [16468:11696:0515/183458.673:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+5월 15, 2022 18:47:32.66 [16468:19260:0515/184732.659:ERROR:sharing_service.cc(252)] Device un-registration failed with fatal error
+
+5월 18, 2022 17:52:39.74 NEW SESSION
+5월 18, 2022 17:52:39.74 [9544:844:0518/175239.746:ERROR:pref_model_associator.cc(121)] Failed to deserialize value of preference 'autofill_profile_validity': Line: 2, column: 1, Unexpected token.
+5월 18, 2022 17:52:41.78 [9544:844:0518/175241.784:ERROR:device_event_log_impl.cc(214)] [17:52:41.774] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+5월 18, 2022 17:52:41.78 [9544:844:0518/175241.786:ERROR:device_event_log_impl.cc(214)] [17:52:41.776] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 18, 2022 17:52:41.78 [9544:844:0518/175241.789:ERROR:device_event_log_impl.cc(214)] [17:52:41.779] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 18, 2022 17:52:41.78 [9544:844:0518/175241.789:ERROR:device_event_log_impl.cc(214)] [17:52:41.779] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 18, 2022 17:52:41.79 [9544:844:0518/175241.789:ERROR:device_event_log_impl.cc(214)] [17:52:41.780] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)

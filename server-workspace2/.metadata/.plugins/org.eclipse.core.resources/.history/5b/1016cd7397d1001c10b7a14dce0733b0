@@ -1,0 +1,6 @@
+package com.kh.board.model.vo;
+
+public class Category {
+	int categoryNo;
+	String categoryName;
+}

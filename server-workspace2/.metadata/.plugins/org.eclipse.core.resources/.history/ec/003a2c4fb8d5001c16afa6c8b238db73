@@ -1,0 +1,17 @@
+package ajaxProject.com.kh.model.vo;
+
+public class Member {
+	private int memberNo;
+	private String memberName;
+	private String gender;
+
+	public Member() {
+		super();
+	}
+
+	public Member(String memberName) {
+		super();
+		this.memberName = memberName;
+	}
+	
+}
