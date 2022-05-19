@@ -1,0 +1,5 @@
+package com.kh.memManage.model.vo;
+
+public class Member {
+
+}

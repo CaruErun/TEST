@@ -1,0 +1,12 @@
+package com.kh.common;
+
+import java.sql.Connection;
+import java.util.Properties;
+
+public class JDBCTemplate {
+	public Connection getConnection(Connection conn) {
+		Properties prop =  new Properties();
+		String fileName = JDBCTemplate.class.getResource("/db/driver/driver.properties").getPath();
+		return conn;
+	}
+}

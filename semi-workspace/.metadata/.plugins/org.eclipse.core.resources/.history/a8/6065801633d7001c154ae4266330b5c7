@@ -1,0 +1,5 @@
+package com.kh.memManage.model.dao;
+
+public class memManageDao {
+
+}

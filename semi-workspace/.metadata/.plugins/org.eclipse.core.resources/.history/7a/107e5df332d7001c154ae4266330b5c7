@@ -1,0 +1,12 @@
+package com.kh.memManage.model.service;
+
+import java.sql.Connection;
+import static com.kh.common.JDBCTemplate.*;
+public class memManageService {
+
+	public int selectmemManage() {
+		Connection conn = getConnection();
+		return 
+	}
+
+}

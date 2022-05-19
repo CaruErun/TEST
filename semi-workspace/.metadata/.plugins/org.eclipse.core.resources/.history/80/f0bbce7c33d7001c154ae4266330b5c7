@@ -1,0 +1,21 @@
+package com.kh.memManage.model.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Properties;
+
+public class memManageDao {
+	private Properties prop = new Properties();
+	public memManageDao() {
+		String fileName = memManageDao.class.getResource("/db/memManage/memManage.mapper.xml")
+	}
+	public int selectmemManage(Connection conn) {
+		int listCount = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		return 0;
+	}
+
+}

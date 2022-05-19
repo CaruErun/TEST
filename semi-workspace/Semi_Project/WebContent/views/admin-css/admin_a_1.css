@@ -1,6 +1,6 @@
 html{
-    width:1200px;
-    height:800px;
+    width:1980px;
+    height:1200px;
 }
 html>div{
     width: 100%;
@@ -8,7 +8,7 @@ html>div{
 #content_2{
     float:left;
     width:1020px;
-    height:680px;
+    height:1000px;
 }
 #content_2>div{
     float:left;
@@ -21,7 +21,7 @@ html>div{
 }
 
 #content_2_1{
-    height:20%;
+    height:10%;
     width:95%;
 }
 #content_2_1>h2{
@@ -96,7 +96,7 @@ html>div{
 
 /*테이블 시작*/
 #content_2_5{
-    height:50%;
+    height:65%;
     width:95%;
 }
 .table{
