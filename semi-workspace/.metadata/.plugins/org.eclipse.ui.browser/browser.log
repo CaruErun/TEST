@@ -15,3 +15,19 @@
 5월 18, 2022 17:52:41.78 [9544:844:0518/175241.789:ERROR:device_event_log_impl.cc(214)] [17:52:41.779] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 5월 18, 2022 17:52:41.78 [9544:844:0518/175241.789:ERROR:device_event_log_impl.cc(214)] [17:52:41.779] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 5월 18, 2022 17:52:41.79 [9544:844:0518/175241.789:ERROR:device_event_log_impl.cc(214)] [17:52:41.780] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+
+5월 20, 2022 09:39:55.63 NEW SESSION
+5월 20, 2022 09:39:55.63 [1704:17736:0520/093955.637:ERROR:pref_model_associator.cc(121)] Failed to deserialize value of preference 'autofill_profile_validity': Line: 2, column: 1, Unexpected token.
+5월 20, 2022 09:39:57.61 [1704:17736:0520/093957.619:ERROR:device_event_log_impl.cc(214)] [09:39:57.619] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+5월 20, 2022 09:39:57.62 [1704:17736:0520/093957.620:ERROR:device_event_log_impl.cc(214)] [09:39:57.620] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 20, 2022 09:39:57.62 [1704:17736:0520/093957.624:ERROR:device_event_log_impl.cc(214)] [09:39:57.624] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 20, 2022 09:39:57.62 [1704:17736:0520/093957.624:ERROR:device_event_log_impl.cc(214)] [09:39:57.624] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 20, 2022 09:40:55.63 [1704:17068:0520/094055.635:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+5월 20, 2022 09:41:51.01 [1704:17736:0520/094151.016:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 20, 2022 10:51:43.58 [1704:17736:0520/105143.587:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 20, 2022 11:32:10.38 [1704:17736:0520/113210.380:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 20, 2022 12:18:29.36 [1704:17736:0520/121829.360:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 20, 2022 13:20:41.96 [1704:17736:0520/132041.966:ERROR:device_event_log_impl.cc(214)] [13:20:41.957] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+5월 20, 2022 13:20:41.96 [1704:17736:0520/132041.967:ERROR:device_event_log_impl.cc(214)] [13:20:41.967] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 20, 2022 13:24:10.59 [1704:17736:0520/132410.597:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 20, 2022 14:40:55.64 [1704:13508:0520/144055.645:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater

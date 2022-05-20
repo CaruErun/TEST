@@ -57,7 +57,7 @@
 		<!--회원 명 수 및 버튼 시작-->
 		<div id="content_2_3">
 
-			검색 회원 수 <span style="color:red">30</span>명
+			검색 회원 수 <span style="color:red"><%=pi.getListCount() %></span>명
 		</div>
 		<div id="content_2_4">
 			<button type="button" class="btn btn-warning">회원보기</button>
@@ -146,7 +146,6 @@
 <script>
 window.onload=function(){
 	var liArr = $(".index-page");
-	console.log(liArr);
 	for(var i=0;i<liArr.length;i++){
 		liArr.eq(i).removeClass("active");
 		if(liArr.eq(i).text()==<%=pi.getCurrentPage()%>){
@@ -155,7 +154,6 @@ window.onload=function(){
 	}
 }
 	$(".onModal").click(function(){
-		console.log(this.childNodes[3].innerHTML);
 		document.getElementById("myModal1").style.display="block";
 		var str = ""
 		$.ajax({

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kh.common.PageInfo;
 import com.kh.memManage.model.service.memManageService;
@@ -42,14 +43,16 @@ public class memManageListController extends HttpServlet {
 		if(endPage > maxPage) {
 			endPage = maxPage;
 		}
-		System.out.println(listCount);
+		
 		PageInfo pi = new PageInfo(listCount,currentPage,pageLimit,boardLimit,maxPage,startPage, endPage);
 		
 		ArrayList<Member> mList = new memManageService().selectMemList(pi);
-		
+		if(mList!=null) {
+		request.setAttribute("adCate",3);
 		request.setAttribute("pi",pi);
 		request.setAttribute("mList", mList);
 		request.getRequestDispatcher("/views/admin/memManage/c_1.jsp").forward(request, response);
+		}
 		
 		
 		

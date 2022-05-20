@@ -1,0 +1,20 @@
+package com.kh.report.model.service;
+import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.getConnection;
+
+import java.sql.Connection;
+
+import com.kh.report.model.dao.reportDao;
+public class reportService {
+
+	public int selectReport() {
+		Connection conn = getConnection();
+		
+		int listCount = new reportDao().selectReport(conn);
+		
+		close(conn);
+		return listCount;
+		
+	}
+
+}
