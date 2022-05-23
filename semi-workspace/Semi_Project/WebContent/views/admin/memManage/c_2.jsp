@@ -33,10 +33,10 @@
 		</div>
 		<!--input 바 시작-->
 		<div id="content_2_2">
-			<form action="search_user.do" method="post">
+			<form action="searchReport.re" method="post">
 				<div id="content_2_2_1">
 					<div class="selecdiv col-sm-2">
-					<select id="select" class="form-control">
+					<select id="select" class="form-control" name="select_report_cate">
 						<option value="userId">회원ID</option>
 						<option value="repoterId">신고자</option>
 					</select>
@@ -55,11 +55,11 @@
 		<!--회원 명 수 및 버튼 시작-->
 		<div id="content_2_3">
 
-			검색 게시글 수 <span style="color:red"><%=pi.getListCount() %></span>명
+			검색 게시글 수 <span style="color:red"><%=pi.getListCount() %></span>개
 		</div>
 		<div id="content_2_4">
-			<button type="button" class="btn btn-warning">상세내용</button>
-			<button type="button" class="btn btn-warning">선택삭제</button>
+			<button type="button" class="btn btn-warning" id="detailBtn" disabled>상세내용</button>
+			<button type="button" class="btn btn-warning" id="deleteBtn" disabled>선택삭제</button>
 		</div>
 		<!--회원 명 수 및 버튼 끝-->
 
@@ -68,7 +68,7 @@
 			<table class="table table-sm">
 				<thead class="thead-light">
 				<tr>
-					<th><input type="checkbox" name="cmCheck"></th>
+					<th><input type="checkbox" name="cmCheck" id="mCheck"></th>
 					<th>번호</th>
 					<th>아이디</th>
 					<th>신고날짜</th>
@@ -80,7 +80,7 @@
 				<tbody id="main-tbody">
 				<%for(Report r : rList) {%>
 				<tr class = "onModal">
-					<td onclick="event.cancelBubble=true"><input type="checkbox" name="cmCheck"></td>
+					<td ondblclick="event.cancelBubble=true"><input type="checkbox" name="cmCheck"></td>
 					<td><%=r.getrepNo() %></td>
 					<td><%=r.getrepUserId() %></td>
 					<td><%=r.getrepEnterdate() %></td>
@@ -150,7 +150,7 @@ window.onload=function(){
 }
 	
 	
-$(".onModal").click(function(){
+$(".onModal").dblclick(function(){
 	document.getElementById("myModal1").style.display="block";
 	var str = ""
 	$.ajax({
@@ -193,6 +193,65 @@ $(".onModal").click(function(){
 	})
 })
 
+$("#detailBtn").click(function(){
+	document.getElementById("myModal1").style.display="block";
+	var num, tds;
+	var cmCheck=$("input[name=cmCheck]");
+	var trs = document.getElementById("main-tbody").getElementsByTagName("tr");
+	for(var i=0;i<cmCheck.length;i++){
+		if(cmCheck[i].checked == true){
+			num = i;
+			break;
+		}
+	}
+	tds = trs[num-1].getElementsByTagName("td");
+	var str = ""
+		$.ajax({
+			url : "ajaxModal.re",
+			data :{rno : tds[1].innerHTML},
+			success : function(result){
+				str +=	"<tr>"+
+				"<th width='40%;'>신고 번호</th>" +
+				"<td width='60%;'>"+result.repNo+"</td>" +
+			"</tr>" +
+			"<tr>"+
+			"<th>아이디</th>" +
+			"<td>"+result.repUserId+"</td>" +
+			"</tr>" + 
+			"<tr>"+
+			"<th>신고자</th>" +
+			"<td>"+result.repRepoter+"</td>" +
+			"</tr>" + 
+			"<tr>"+
+			"<th>신고날짜</th>" +
+			"<td>"+result.repEnterdate+"</td>" +
+			"</tr>" + 
+			"<tr>"+
+			"<th>신고제목</th>" +
+			"<td>"+result.repTitle+"</td>" +
+			"</tr>" + 
+			"<tr>"+
+			"<td colspan='2' height='200px'>"+result.repContent+"</td>" +
+			"</tr>" + 
+			"<tr>";
+			$("#modal-bodyy").html(str);
+			if(result.repStatus=='Y'){
+				document.getElementById("confirm").style.display="none";
+				document.getElementById("delete").style.display="none";
+			}
+			},
+			error : function(){
+				console.log("실패");
+			}
+		})
+})
+
+
+
+
+
+
+
 	function myModal1Close(){
 		document.getElementById("myModal1").style.display="none";
 	}
@@ -234,6 +293,62 @@ $(".onModal").click(function(){
 			}
 		})
 	}
+	$("#mCheck").change(function(){
+		if($(this).prop('checked')==true) $("input[name=cmCheck]").prop('checked',true);
+		else $("input[name=cmCheck]").prop('checked',false);
+	})
+
+	$("input[name=cmCheck]").change(function(){
+		var count=0;
+		var cmCheck=$("input[name=cmCheck]");
+		for(var i=0;i<cmCheck.length;i++){
+			if(cmCheck[i].checked == true) count++;
+			if(count>=2) break;
+		}
+		if(count>0) document.getElementById("deleteBtn").removeAttribute('disabled');
+		else document.getElementById("deleteBtn").disabled=true;
+		if(count==1) document.getElementById("detailBtn").removeAttribute('disabled');
+		else document.getElementById("detailBtn").disabled=true;
+
+	})
+		document.addEventListener('keydown',function(e){
+		if(e.keyCode==27 && document.getElementById("myModal1").style.display == "block")
+			document.getElementById("myModal1").style.display="none";
+	})
+	
+	$("#deleteBtn").click(function(){
+		if(window.confirm("탈퇴 처리 하시겠습니까?")){
+		var check1 = [];
+		var tds=[];
+		var data1=[];
+		var cmCheck=$("input[name=cmCheck]");
+		var trs = document.getElementById("main-tbody").getElementsByTagName("tr");
+		var count=0;
+		for(var i=1;i<cmCheck.length;i++){
+			if(cmCheck[i].checked == true) {
+				check1[count]= i-1;
+				count++;
+			}
+		}
+		for(var i=0;i<check1.length;i++){
+			tds[i] = trs[check1[i]].getElementsByTagName("td");
+			data1[i]=tds[i][1].innerHTML;
+		}
+		$.ajax({
+			url : "ajaxDelete.re",
+			traditional : true,
+			data :{rnoArr : data1},
+			success : function(){
+				window.alert("정상 처리 되었습니다.");
+				window.location.reload(true);
+			},
+			error : function(){
+				console.log("실패");
+			}
+		})
+		}
+		
+	})
 </script>
 </body>
 </html>

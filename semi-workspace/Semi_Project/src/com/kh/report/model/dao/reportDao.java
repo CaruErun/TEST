@@ -210,6 +210,81 @@ public class reportDao {
 		}
 		return result;
 	}
+	public int ajaxDeleteReport(Connection conn, int[] rnoArr) {
+		PreparedStatement pstmt = null;
+		int result = 1;
+		String sql = prop.getProperty("ajaxDeleteReport");
+		try {
+			for(int i=0;i<rnoArr.length;i++) {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setInt(1, rnoArr[i]);
+				result = result * pstmt.executeUpdate();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	public ArrayList<Report> searchReport(Connection conn, String reportCate, String searchUser, PageInfo pi) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Report> rList = new ArrayList<>();
+		String sql = "";
+		switch(reportCate) {
+		case "userId" : sql = prop.getProperty("searchReportId"); break;
+		case "repoterId" :  sql = prop.getProperty("searchReporterId"); break;
+		}
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, searchUser);
+			pstmt.setInt(2, (pi.getCurrentPage()-1)*pi.getBoardLimit()+1);
+			pstmt.setInt(3, pi.getCurrentPage()*pi.getBoardLimit());
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				rList.add(new Report(rset.getInt("REP_NO"),
+						rset.getDate("REP_ENTERDATE"),
+						rset.getString("REP_TITLE"),
+						rset.getString("REP_CONTENT"),
+						rset.getString("REP_USER_ID"),
+						rset.getString("REP_REPOTER"),
+						rset.getString("REP_STATUS")));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return rList;
+	}
+	public int searchReportCount(Connection conn, String reportCate, String searchUser) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int listCount = 0;
+		String sql = "";
+		switch(reportCate) {
+		case "userId" : sql = prop.getProperty("searchReportCountId"); break;
+		case "repoterId" :  sql = prop.getProperty("searchReporterCountId"); break;
+		}
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, searchUser);
+			rset = pstmt.executeQuery();
+			if(rset.next())
+			listCount = rset.getInt("COUNT");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;
+	}
 
 
 }

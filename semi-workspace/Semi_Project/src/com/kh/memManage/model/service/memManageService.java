@@ -36,4 +36,36 @@ public class memManageService {
 		return m;
 	}
 
+	public void ajaxDeleteUser(int[] mnoArr) {
+		Connection conn = getConnection();
+		
+		int result = new memManageDao().ajaxDeleteUser(conn, mnoArr);
+		
+		if(result>0) commit(conn);
+		else rollback(conn);
+		
+		close(conn);
+		
+	}
+
+	public ArrayList<Member> searchUser(String userCate, String searchUser, PageInfo pi) {
+		Connection conn = getConnection();
+		
+		ArrayList<Member> mList = new memManageDao().searchUser(conn, userCate, searchUser, pi);
+		
+		close(conn);
+		
+		return mList;
+	}
+
+	public int searchUserCount(String userCate, String searchUser) {
+		Connection conn = getConnection();
+		
+		int listCount = new memManageDao().searchUserCount(conn, userCate, searchUser);
+		
+		close(conn);
+		
+		return listCount;
+	}
+
 }

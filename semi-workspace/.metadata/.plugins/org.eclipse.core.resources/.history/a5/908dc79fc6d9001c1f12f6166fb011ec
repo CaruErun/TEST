@@ -1,0 +1,23 @@
+package com.kh.serviceCenter.model.dao;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.Connection;
+import java.util.Properties;
+
+public class ScDao {
+	Properties prop = new Properties();
+	public ScDao() {
+		String fileName = ScDao.class.getResource("/db/ServiceCenter/serviceCenter-mapper.xml").getPath();
+		try {
+			prop.loadFromXML(new FileInputStream(fileName));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public int selectFAQList(Connection conn) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -84,7 +84,7 @@
                         <td><img src="/Semi/views/image/down_triangle.png" class="triangle"></td>
                     </tr>
                     <tr class="Service">
-                        <td colspan="2" class="sub-menu"><a href="/Semi/views/admin/d_1.jsp">FAQ 관리</a></td>
+                        <td colspan="2" class="sub-menu"><a href="/Semi/ScList.sc?cpage=1">FAQ 관리</a></td>
                     </tr>
                     <tr class="Service">
                         <td colspan="2" class="sub-menu"><a href="/Semi/views/admin/d_2.jsp">1:1문의</a></td>
@@ -206,7 +206,18 @@
 	            setClass[0].childNodes[1].childNodes[0].style.color="yellow";
 	            setClass[2].childNodes[1].childNodes[0].style.color="yellow";
 	        }
+	        if(<%=adCate%>==5){
+	            var setClass = document.getElementsByClassName('Service');
+	            for(var i=1;i<setClass.length;i++){
+	                setClass[i].childNodes[1].childNodes[0].style.display='block';
+	            }
+	            setClass[0].childNodes[3].childNodes[0].setAttribute("src","/Semi/views/image/triangle.png");
+	            setClass[0].childNodes[1].childNodes[0].style.color="yellow";
+	            setClass[1].childNodes[1].childNodes[0].style.color="yellow";
+	        }
 		});
+        
+        
         //삼각형 변경 스크립트
         var triangles=document.getElementsByClassName("triangle");
         function tri_click(idx){

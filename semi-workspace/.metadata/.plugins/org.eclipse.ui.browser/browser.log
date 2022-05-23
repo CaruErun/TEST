@@ -31,3 +31,19 @@
 5월 20, 2022 13:20:41.96 [1704:17736:0520/132041.967:ERROR:device_event_log_impl.cc(214)] [13:20:41.967] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 5월 20, 2022 13:24:10.59 [1704:17736:0520/132410.597:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
 5월 20, 2022 14:40:55.64 [1704:13508:0520/144055.645:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+5월 23, 2022 14:24:15.70 NEW SESSION
+5월 23, 2022 14:24:15.71 [19312:27004:0523/142415.707:ERROR:pref_model_associator.cc(121)] Failed to deserialize value of preference 'autofill_profile_validity': Line: 2, column: 1, Unexpected token.
+5월 23, 2022 14:24:20.29 [19312:27004:0523/142420.292:ERROR:device_event_log_impl.cc(214)] [14:24:20.292] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+5월 23, 2022 14:24:20.29 [19312:27004:0523/142420.294:ERROR:device_event_log_impl.cc(214)] [14:24:20.295] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 23, 2022 14:24:20.29 [19312:27004:0523/142420.298:ERROR:device_event_log_impl.cc(214)] [14:24:20.298] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 23, 2022 14:24:20.29 [19312:27004:0523/142420.298:ERROR:device_event_log_impl.cc(214)] [14:24:20.298] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 23, 2022 14:25:15.69 [19312:8440:0523/142515.693:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+5월 23, 2022 14:29:35.35 [19312:27004:0523/142935.350:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 23, 2022 14:29:35.35 [19312:27004:0523/142935.350:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 23, 2022 14:33:23.96 [19312:27004:0523/143323.964:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 23, 2022 14:33:25.61 [19312:27004:0523/143325.613:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 23, 2022 14:33:25.61 [19312:27004:0523/143325.613:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 23, 2022 15:13:39.97 [19312:27004:0523/151339.975:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 23, 2022 15:26:34.10 [19312:27004:0523/152634.103:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 23, 2022 15:30:33.44 [19312:27004:0523/153033.443:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost

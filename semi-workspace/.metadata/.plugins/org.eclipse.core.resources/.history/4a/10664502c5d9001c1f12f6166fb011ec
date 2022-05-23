@@ -1,0 +1,10 @@
+package com.kh.serviceCenter.model.vo;
+
+public class ServiceCenter {
+	private int faqNo;
+	private String faqCate;
+	private String faqTitle;
+	private String faqContent;
+	private String faqStatus;
+	
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;Semi_Project/src/com/kh/memManage/controller/MemberJoinServlet.java&apos;" deleteContents="false" description="Delete resource &apos;Semi_Project/src/com/kh/memManage/controller/MemberJoinServlet.java&apos;" element1="/Semi_Project/src/com/kh/memManage/controller/MemberJoinServlet.java" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1653270969321"/>
+</session>

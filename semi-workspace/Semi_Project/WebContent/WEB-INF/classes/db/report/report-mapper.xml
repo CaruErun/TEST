@@ -48,4 +48,43 @@
 	SET U_STATUS='S'
 	WHERE USER_ID = ?
 </entry>
+<entry key="ajaxDeleteReport">
+	UPDATE REPORT
+	SET REP_STATUS = 'Y'
+	WHERE REP_NO = ?
+</entry>
+
+<entry key="searchReportId">
+	SELECT *
+	FROM(
+	SELECT ROWNUM R, A.*
+	FROM(
+	SELECT REP_NO, REP_ENTERDATE, REP_TITLE, REP_CONTENT, REP_USER_ID, REP_REPOTER, REP_STATUS
+	FROM REPORT
+	WHERE REP_USER_ID = ?) A)
+	WHERE R BETWEEN ? AND ?
+</entry>
+
+<entry key="searchReporterId">
+	SELECT *
+	FROM(
+	SELECT ROWNUM R, A.*
+	FROM(
+	SELECT REP_NO, REP_ENTERDATE, REP_TITLE, REP_CONTENT, REP_USER_ID, REP_REPOTER, REP_STATUS
+	FROM REPORT
+	WHERE REP_REPOTER = ?) A)
+	WHERE R BETWEEN ? AND ?
+</entry>
+
+<entry key="searchReportCountId">
+	SELECT COUNT(*) "COUNT"
+	FROM REPORT
+	WHERE REP_USER_ID = ?
+</entry>
+
+<entry key="searchReporterCountId">
+	SELECT COUNT(*) "COUNT"
+	FROM REPORT
+	WHERE REP_REPOTER = ?
+</entry>
 </properties>

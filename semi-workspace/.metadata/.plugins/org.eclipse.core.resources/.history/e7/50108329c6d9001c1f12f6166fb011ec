@@ -1,0 +1,15 @@
+package com.kh.serviceCenter.model.dao;
+import java.sql.Connection;
+import java.util.Properties;
+
+public class ScDao {
+	public ScDao() {
+		Properties prop = new Properties();
+		
+	}
+	public int selectFAQList(Connection conn) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

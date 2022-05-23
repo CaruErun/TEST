@@ -113,5 +113,88 @@ public class memManageDao {
 		
 		return m;
 	}
+	public int ajaxDeleteUser(Connection conn, int[] mnoArr) {
+		PreparedStatement pstmt = null;
+		int result = 1;
+		String sql = prop.getProperty("ajaxDeleteUser");
+		try {
+			for(int i=0;i<mnoArr.length;i++) {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setInt(1, mnoArr[i]);
+				result = result * pstmt.executeUpdate();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	public ArrayList<Member> searchUser(Connection conn, String userCate, String searchUser, PageInfo pi) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<Member> mList = new ArrayList<>();
+		String sql = "";
+		switch(userCate) {
+		case "userId" : sql = prop.getProperty("searchUserId"); break;
+		case "userName" :  sql = prop.getProperty("searchUserName"); break;
+		case "userNName" : sql = prop.getProperty("searchUserNName"); break;
+		}
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, searchUser);
+			pstmt.setInt(2, (pi.getCurrentPage()-1)*pi.getBoardLimit()+1);
+			pstmt.setInt(3, pi.getCurrentPage()*pi.getBoardLimit());
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				mList.add(new Member(rset.getInt("USER_NO"),
+						rset.getString("USER_ID"),
+						rset.getString("USER_NAME"),
+						rset.getString("USER_NNAME"),
+						rset.getDate("USER_BIRTH"),
+						rset.getString("GENDER"),
+						rset.getString("EMAIL"),
+						rset.getString("PHONE"),
+						rset.getString("ADDRESS"),
+						rset.getDate("ENTERDATE"),
+						rset.getString("U_STATUS"),
+						rset.getInt("USER_RPC")));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return mList;
+	}
+	public int searchUserCount(Connection conn, String userCate, String searchUser) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int listCount = 0;
+		String sql = "";
+		switch(userCate) {
+		case "userId" : sql = prop.getProperty("searchUserCountId"); break;
+		case "userName" :  sql = prop.getProperty("searchUserCountName"); break;
+		case "userNName" : sql = prop.getProperty("searchUserCountNName"); break;
+		}
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, searchUser);
+			rset = pstmt.executeQuery();
+			if(rset.next())
+			listCount = rset.getInt("COUNT");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;
+	}
 
 }
