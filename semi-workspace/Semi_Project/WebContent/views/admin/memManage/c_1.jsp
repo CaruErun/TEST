@@ -40,7 +40,6 @@
 					<select id="select" name="select_user_cate" class="form-control">
 						<option value="userId">회원ID</option>
 						<option value="userName">회원명</option>
-						<option value="userNName">닉네임</option>
 					</select>
 					</div>
 					<div class="col-sm-5">
@@ -61,9 +60,7 @@
 		</div>
 		<div id="content_2_4">
 			<button type="button" class="btn btn-warning" id="detailBtn" disabled>회원보기</button>
-			<button type="button" class="btn btn-warning" >회원수정</button>
 			<button type="button" class="btn btn-warning" id="deleteBtn" disabled>회원삭제</button>
-			<button type="button" class="btn btn-warning">쿠폰확인</button>
 		</div>
 		<!--회원 명 수 및 버튼 끝-->
 
@@ -190,7 +187,7 @@ window.onload=function(){
 			"</tr>" + 
 			"<tr>"+
 			"<th>아이디 생성 날짜</th>" +
-			"<td>"+result.userBirth+"</td>" +
+			"<td>"+result.enterDate+"</td>" +
 			"</tr>";
 			$("#modal-bodyy").html(str);
 			},
@@ -279,26 +276,25 @@ window.onload=function(){
 	})
 	
 	$("#deleteBtn").click(function(){
-		if(window.confirm("숨김 처리 하시겠습니까?")){
-		var check1 = [];
-		var tds=[];
-		var data1=[];
-		var cmCheck=$("input[name=cmCheck]");
-		var trs = document.getElementById("main-tbody").getElementsByTagName("tr");
-		var count=0;
-		for(var i=1;i<cmCheck.length;i++){
-			if(cmCheck[i].checked == true) {
-				check1[count]= i-1;
-				count++;
+		if(window.confirm("탈퇴 처리 하시겠습니까?")){
+			var check1 = [];
+			var tds=[];
+			var data1=[];
+			var cmCheck=$("input[name=cmCheck]");
+			var trs = document.getElementById("main-tbody").getElementsByTagName("tr");
+			var count=0;
+			for(var i=1;i<cmCheck.length;i++){
+				if(cmCheck[i].checked == true) {
+					check1[count]= i-1;
+					count++;
+				}
 			}
-		}
-		for(var i=0;i<check1.length;i++){
-			tds[i] = trs[check1[i]].getElementsByTagName("td");
-			data1[i]=tds[i][1].innerHTML;
-		}
-		console.log(data1);
+			for(var i=0;i<check1.length;i++){
+				tds[i] = trs[check1[i]].getElementsByTagName("td");
+				data1[i]=tds[i][1].innerHTML;
+			}
 		$.ajax({
-			url : "ajaxHide.sc",
+			url : "ajaxDelete.mm",
 			traditional : true,
 			data :{mnoArr : data1},
 			success : function(){

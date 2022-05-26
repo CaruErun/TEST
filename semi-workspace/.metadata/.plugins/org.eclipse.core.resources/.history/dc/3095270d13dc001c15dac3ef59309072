@@ -1,0 +1,12 @@
+package com.kh.common;
+
+public class SMTPAuthenticator extends Authenticator {
+	public SMTPAuthenticator() {
+				super();
+		    }
+	public PasswordAuthentication getPasswordAuthentication() {
+		String username = "지메일주소";
+		String password = "지메일암호";
+		return new PasswordAuthentication(username, password);
+		    }
+}

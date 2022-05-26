@@ -7,7 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@include file="views/common/adminMenubar.jsp" %>
+
+	<h2>페이지</h2>
+	
+	
+	<a href="views/semi/main.jsp">사용자 페이지</a>
+	<a href="views/common/adminMenubar.jsp">어드민 페이지</a>
+	<a href="views/payment/paymentform.jsp">결제페이지</a>
 	
 </body>
 </html>

@@ -1,0 +1,5 @@
+package com.kh.member_2.model.vo;
+
+public class MemberUser {
+
+}

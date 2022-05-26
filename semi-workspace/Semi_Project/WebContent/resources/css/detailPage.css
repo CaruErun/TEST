@@ -1,0 +1,330 @@
+/* common */
+
+body{
+  color: #333;
+  font-size: 16px;
+  line-height: 1.4;
+  font-family: sans-serif;
+  position: relative;
+  left: 34px;
+}
+img {
+ display: block;
+}
+
+/* header */
+header{
+  width: 100%;
+  height: 200px;
+}
+header .inner{
+  position: relative;
+  width: 1100px;
+  height: 120px;
+}
+header .inner .logo{
+  height: 90px;
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 60px;
+}
+header .top-navi{
+ 
+  right: 170px;
+  top: 10px;
+  position: absolute;
+  
+}
+header .top-navi ul.navi {
+  display: flex;
+ 
+  
+}
+header .top-navi ul.navi li{
+  position: relative;
+  list-style: none;
+
+}
+header .top-navi ul.navi li::before{
+  content: "";
+  width: 1px;
+  height: 12px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+header .top-navi ul.navi li a{
+  font-size: 18px;
+  padding: 10px 15px;
+  display: block;
+  color: black;
+  text-decoration-line: none;
+}
+header .top-navi ul.navi li a:hover{
+  
+  color: antiquewhite;
+}
+header .search{
+  position: absolute;
+  padding: 30px;
+  height: 50px;
+  width: 900px;
+  left: 570px;
+  top: 75px;
+  
+}
+header .search .material-icons{
+  font-size: 44px;
+  position: absolute;
+  right: 120px;
+  top: 35px;
+
+
+}
+header .search>input{
+  height: inherit;
+  width: 800px;
+  left: inherit;
+  
+}
+header .order{
+  height: 100px;
+  width: 200px;
+  position: absolute;
+  right: 200px;
+  top: 110px;
+}
+header .order #order a .material-symbols-outlined{
+  font-size: 44px;
+  position: absolute;
+  right: 100px;
+  color: #333;
+
+
+}
+header .order #favor a .material-symbols-outlined{
+  font-size: 44px;
+  position: absolute;
+  color: #333;
+}
+
+
+.navigator{
+  margin: 40px 0;
+}
+#navi{
+  list-style-type: none;
+            height: 100%;
+}
+#navi>li{
+
+  /*방법 1 + #navi a{ transform : scale(1); 추가하기}*/
+  /* float: left; */
+  /* height: 100%;
+  width: 20%;
+  text-align: center; */
+
+  /*방법 2*/
+  display: inline-block;
+  width: 15%;
+  height: 42px;
+  text-align: center;
+
+  vertical-align: middle;/*inline요소들의 수직정렬 기준*/
+  background-color: lightskyblue;
+  border: 1px solid;
+  
+}
+#navi a{
+  /* border: 1px solid red; */
+  color: #333;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  line-height: 41px;
+
+  /* transform: scale(1); */
+}
+#navi a:hover{
+  font-size: 20px;
+  color: brown;
+}
+#navi>li>ul{
+  position: relative;
+  margin: auto;
+  list-style-type: none;
+  padding: 0px;
+  font-size: 43px;
+  text-align: center;
+  display: none;
+}
+#navi>li:hover+ul{
+  display: block;
+}
+#navi>li>ul:hover{
+  display: block;
+}
+#navi>li>ul a{
+  
+  font-size: 23px;
+  margin: 30px 0;
+  text-align: center;
+  display : block;
+}
+
+
+#navi>li>a:hover+ul {
+  /* 평소에는 안보여지다가 마우스가 올라가는 순간 펼쳐지는 효과 부여 2단계 */
+  display : block;
+ /* 메인메뉴에만 마우스가 올라갈 때 유지가 되므로 */
+background-color: lightslategray;
+
+border: 1px solid black;
+
+}
+#navi>li>a:hover+ul:hover{
+  display: block;
+}
+#navi>li>a:hover+ul>li{
+  border: 1px solid black;
+  z-index: -1;
+  display : block;
+  
+}
+/* 상품 상세 */
+
+.detail-top{
+  
+  height: 650px;
+  
+  width: 100%;
+}
+/* 상세 헤어 왼쪽 */
+.detail-top #detail-top-left{
+  display: inline-block;
+  border-right: #333 1px solid;
+  height: inherit;
+  width: 1000px;
+}
+.detail-top #detail-top-left #main{
+  display: block;
+  height: 80%;
+  
+  margin: auto;
+}
+.detail-top #detail-top-left #sub {
+  height: 20%;
+  display: inline-block;
+  width: 100%;
+  margin: auto;
+}
+.detail-top #detail-top-left #sub img{
+  display: inline-block;
+  width: 22%;
+  height: 100%;
+  border: lightblue dashed;
+  border-radius: 5rem;
+
+}
+/* 상세 헤어 오른쪽 */
+.detail-top #detail-top-right{
+  display: inline-block;
+  height: inherit;
+  width: 1000px;
+  position: absolute;
+}
+.detail-top #detail-top-right>pre{
+  font-size: 14px;
+  text-align: center;
+  height: 33%;
+}
+/* .detail-top #detail-top-right-bottom{
+  background-color: beige;
+  width: 100%;
+  height:  33%;
+  float:left;
+  margin: auto;
+} */
+
+#detail-top-right-bottom{
+  background-color: aqua;
+  width: 500px;
+  height: 200px;
+  
+  
+  /* position: absolute; */
+}
+.detail-top #detail-top-right-bottom #buy-order button{
+  border-radius: 10%;
+  cursor: pointer;
+}
+.detail-top #detail-top-right-bottom #buy-order #buy{
+  font-size: 30px;
+}
+.detail-top #detail-top-right-bottom #buy-order #order1,#order2{
+  font-size: 15px;
+}
+.detail-middle #detail-button{
+  width: 80%;
+  margin: auto;
+}
+.detail-middle #detail-button>button{
+  display: inline-block;
+  width: 10%;
+  height: 70px;
+  margin: 60px 100px;
+  font-size: 30px;
+  border-radius: 5%;
+  cursor: pointer;
+}
+.detail-middle #pr-description,#pr-content,#pr-reviews,#pr-question{
+  margin-top: 50px ;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  width: 80%;
+  height: 300px;
+  background-color: antiquewhite;
+  border: solid 1px black;
+}
+
+#detail-top-right-bottom>#buy-order{
+  background-color: beige;
+  width:100%;
+  height:50%;
+  float:left;
+}
+#buy-order>#buy,#buy-order>#order{
+  width:30%;
+  float:left;
+}
+#buy-order>#h2{
+  width:40%;
+  float:left;
+}
+
+#buy{
+  height:100%;
+  float:left;
+}
+#buy>button{
+  width:100%;
+  height:100%;
+}
+#order{
+  height:100%;
+}
+#order1,#order2{
+  width:70%;
+  height:50%;
+  float:left;
+}
+
+#order1>button,#order2>button{
+  width:100%;
+  height:100%;
+}

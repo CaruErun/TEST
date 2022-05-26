@@ -47,3 +47,65 @@
 5월 23, 2022 15:13:39.97 [19312:27004:0523/151339.975:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
 5월 23, 2022 15:26:34.10 [19312:27004:0523/152634.103:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
 5월 23, 2022 15:30:33.44 [19312:27004:0523/153033.443:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+
+5월 24, 2022 11:48:04.13 NEW SESSION
+5월 24, 2022 11:48:04.13 [4872:17480:0524/114804.120:ERROR:pref_model_associator.cc(121)] Failed to deserialize value of preference 'autofill_profile_validity': Line: 2, column: 1, Unexpected token.
+5월 24, 2022 11:48:07.63 [4872:17480:0524/114807.636:ERROR:device_event_log_impl.cc(214)] [11:48:07.635] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+5월 24, 2022 11:48:07.63 [4872:17480:0524/114807.638:ERROR:device_event_log_impl.cc(214)] [11:48:07.637] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 24, 2022 11:48:07.64 [4872:17480:0524/114807.641:ERROR:device_event_log_impl.cc(214)] [11:48:07.641] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 24, 2022 11:48:07.64 [4872:17480:0524/114807.641:ERROR:device_event_log_impl.cc(214)] [11:48:07.641] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 24, 2022 11:49:04.11 [4872:24144:0524/114904.112:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+5월 24, 2022 13:28:02.53 [4872:17480:0524/132802.534:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 24, 2022 13:28:02.53 [4872:17480:0524/132802.534:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 24, 2022 13:29:06.09 [4872:17480:0524/132906.092:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 24, 2022 13:30:57.06 [4872:17480:0524/133057.060:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 24, 2022 13:31:00.68 [4872:17480:0524/133100.684:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 24, 2022 13:31:25.38 [4872:17480:0524/133125.383:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 24, 2022 13:40:51.67 [4872:17480:0524/134051.679:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 24, 2022 13:48:14.75 [4872:17480:0524/134814.755:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 24, 2022 14:09:04.62 [4872:17480:0524/140904.627:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 24, 2022 14:09:07.50 [4872:17480:0524/140907.508:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 24, 2022 15:23:24.07 [20568:21304:0524/152324.061:ERROR:pref_model_associator.cc(121)] Failed to deserialize value of preference 'autofill_profile_validity': Line: 2, column: 1, Unexpected token.
+5월 24, 2022 15:23:26.04 [20568:21304:0524/152326.047:ERROR:device_event_log_impl.cc(214)] [15:23:26.047] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+5월 24, 2022 15:23:26.04 [20568:21304:0524/152326.049:ERROR:device_event_log_impl.cc(214)] [15:23:26.048] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 24, 2022 15:23:26.05 [20568:21304:0524/152326.053:ERROR:device_event_log_impl.cc(214)] [15:23:26.052] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 24, 2022 15:23:26.05 [20568:21304:0524/152326.053:ERROR:device_event_log_impl.cc(214)] [15:23:26.052] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 24, 2022 15:24:24.04 [20568:2880:0524/152424.045:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+5월 24, 2022 15:27:23.84 [20568:21304:0524/152723.848:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 24, 2022 16:25:57.53 [20568:21304:0524/162557.532:ERROR:device_event_log_impl.cc(214)] [16:25:57.529] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+5월 24, 2022 18:19:06.59 [8656:7740:0524/181906.594:ERROR:pref_model_associator.cc(121)] Failed to deserialize value of preference 'autofill_profile_validity': Line: 2, column: 1, Unexpected token.
+5월 24, 2022 18:19:09.60 [8656:7740:0524/181909.605:ERROR:device_event_log_impl.cc(214)] [18:19:09.605] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+5월 24, 2022 18:19:09.60 [8656:7740:0524/181909.606:ERROR:device_event_log_impl.cc(214)] [18:19:09.607] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 24, 2022 18:19:09.61 [8656:7740:0524/181909.610:ERROR:device_event_log_impl.cc(214)] [18:19:09.611] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 24, 2022 18:19:09.61 [8656:7740:0524/181909.611:ERROR:device_event_log_impl.cc(214)] [18:19:09.611] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 24, 2022 18:20:06.57 [8656:20380:0524/182006.576:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+5월 24, 2022 18:33:01.91 [8656:7740:0524/183301.914:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 24, 2022 18:35:50.23 [8656:7740:0524/183550.233:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+
+5월 26, 2022 17:27:01.04 NEW SESSION
+5월 26, 2022 17:27:01.04 [15364:11708:0526/172701.040:ERROR:pref_model_associator.cc(121)] Failed to deserialize value of preference 'autofill_profile_validity': Line: 2, column: 1, Unexpected token.
+5월 26, 2022 17:27:03.97 [15364:11708:0526/172703.977:ERROR:device_event_log_impl.cc(214)] [17:27:03.978] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+5월 26, 2022 17:27:03.97 [15364:11708:0526/172703.979:ERROR:device_event_log_impl.cc(214)] [17:27:03.979] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 26, 2022 17:27:03.98 [15364:11708:0526/172703.984:ERROR:device_event_log_impl.cc(214)] [17:27:03.983] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 26, 2022 17:27:03.98 [15364:11708:0526/172703.984:ERROR:device_event_log_impl.cc(214)] [17:27:03.983] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 26, 2022 17:28:01.03 [15364:6536:0526/172801.034:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+5월 26, 2022 17:37:58.05 [15364:11708:0526/173758.052:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 26, 2022 17:44:37.84 [15364:11708:0526/174437.842:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 26, 2022 18:15:30.38 [16344:13344:0526/181530.380:ERROR:pref_model_associator.cc(121)] Failed to deserialize value of preference 'autofill_profile_validity': Line: 2, column: 1, Unexpected token.
+5월 26, 2022 18:15:33.67 [16344:13344:0526/181533.673:ERROR:device_event_log_impl.cc(214)] [18:15:33.672] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+5월 26, 2022 18:15:33.67 [16344:13344:0526/181533.674:ERROR:device_event_log_impl.cc(214)] [18:15:33.674] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 26, 2022 18:15:33.67 [16344:13344:0526/181533.678:ERROR:device_event_log_impl.cc(214)] [18:15:33.678] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 26, 2022 18:15:33.67 [16344:13344:0526/181533.678:ERROR:device_event_log_impl.cc(214)] [18:15:33.678] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 26, 2022 18:16:30.36 [16344:5700:0526/181630.364:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+5월 26, 2022 18:30:26.60 [12708:12720:0526/183026.604:ERROR:pref_model_associator.cc(121)] Failed to deserialize value of preference 'autofill_profile_validity': Line: 2, column: 1, Unexpected token.
+5월 26, 2022 18:30:30.86 [12708:12720:0526/183030.863:ERROR:device_event_log_impl.cc(214)] [18:30:30.863] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+5월 26, 2022 18:30:30.86 [12708:12720:0526/183030.865:ERROR:device_event_log_impl.cc(214)] [18:30:30.864] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 26, 2022 18:30:30.86 [12708:12720:0526/183030.869:ERROR:device_event_log_impl.cc(214)] [18:30:30.868] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 26, 2022 18:30:30.86 [12708:12720:0526/183030.869:ERROR:device_event_log_impl.cc(214)] [18:30:30.868] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 26, 2022 18:31:26.60 [12708:8640:0526/183126.599:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+5월 26, 2022 18:32:43.99 [12708:12720:0526/183243.997:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 26, 2022 18:35:53.14 [12708:12720:0526/183553.143:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 26, 2022 18:35:58.14 [12708:12720:0526/183558.145:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 26, 2022 18:36:12.69 [12708:12720:0526/183612.693:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 26, 2022 19:21:27.89 [12708:12720:0526/192127.890:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 26, 2022 19:45:55.00 [12708:12720:0526/194555.006:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost

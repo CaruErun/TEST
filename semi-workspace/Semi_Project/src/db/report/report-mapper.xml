@@ -45,7 +45,7 @@
 </entry>
 <entry key="banUser">
 	UPDATE MEMBER
-	SET U_STATUS='S'
+	SET U_STATUS='U'
 	WHERE USER_ID = ?
 </entry>
 <entry key="ajaxDeleteReport">

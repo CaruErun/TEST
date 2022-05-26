@@ -38,11 +38,6 @@ public class reportSearchController extends HttpServlet {
 		String reportCate = request.getParameter("select_report_cate");
 		String searchUser = request.getParameter("search_user");
 		
-		System.out.println(reportCate);
-		System.out.println(searchUser);
-		System.out.println(session.getAttribute("reportCate"));
-		System.out.println(session.getAttribute("searchUser"));
-		
 		int listCount = 0;
 		listCount = new reportService().searchReportCount(reportCate, searchUser);
 		int currentPage =1;

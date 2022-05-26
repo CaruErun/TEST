@@ -41,7 +41,6 @@
 					<select id="select" name="select_user_cate" class="form-control">
 						<option value="userId">회원ID</option>
 						<option value="userName">회원명</option>
-						<option value="userNName">닉네임</option>
 					</select>
 					</div>
 					<div class="col-sm-5">
@@ -145,7 +144,7 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger myModal1Close">Close</button>
+        <button type="button" class="btn btn-danger myModal1Close">닫기</button>
       </div>
 
     </div>
@@ -192,7 +191,7 @@ window.onload=function(){
 			"</tr>" + 
 			"<tr>"+
 			"<th>아이디 생성 날짜</th>" +
-			"<td>"+result.userBirth+"</td>" +
+			"<td>"+result.enterDate+"</td>" +
 			"</tr>";
 			$("#modal-bodyy").html(str);
 			},

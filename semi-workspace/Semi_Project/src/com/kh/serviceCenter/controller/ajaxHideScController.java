@@ -29,12 +29,13 @@ public class ajaxHideScController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int sw = Integer.parseInt(request.getParameter("sw"));
 		String[] arr = request.getParameterValues("fnoArr");
 		int[] fnoArr = new int[arr.length];
 		for(int i=0;i<arr.length;i++) {
 			fnoArr[i] = Integer.parseInt(arr[i]);
 		}
-		new ScService().ajaxHideSc(fnoArr);
+		new ScService().ajaxHideSc(fnoArr,sw);
 	}
 
 	/**

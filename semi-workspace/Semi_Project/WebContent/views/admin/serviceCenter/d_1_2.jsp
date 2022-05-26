@@ -35,10 +35,10 @@
 		</div>
 		<!--input 바 시작-->
 		<div id="content_2_2">
-			<form action="searchFAQ.sc" method="post">
+			<form action="searchFAQ.sc" method="post" >
 				<div id="content_2_2_1">
 					<div class="selecdiv col-sm-2">
-					<select id="select" class="form-control">
+					<select id="select" class="form-control" name="select_faq_cate">
 						<option value="title">제목</option>
 						<option value="faq-select">구분</option>
 					</select>
@@ -61,6 +61,7 @@
 		</div>
 		<div id="content_2_4">
 			<button type="button" class="btn btn-warning" onclick="location.href='/Semi/views/admin/serviceCenter/d_1_1.jsp'">FAQ 등록</button>
+			<button type="button" class="btn btn-warning" id="openBtn" disabled>선택 공개</button>	
 			<button type="button" class="btn btn-warning" id="deleteBtn" disabled>선택 비공개</button>
 		</div>
 		<!--회원 명 수 및 버튼 끝-->
@@ -113,7 +114,7 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">회원상세정보</h4>
+        <h4 class="modal-title">FAQ 상세</h4>
         <button type="button" class="close myModal1Close" >&times;</button>
       </div>
 
@@ -206,8 +207,14 @@ window.onload=function(){
 			if(cmCheck[i].checked == true) count++;
 			if(count>=2) break;
 		}
-		if(count>0) document.getElementById("deleteBtn").removeAttribute('disabled');
-		else document.getElementById("deleteBtn").disabled=true;
+		if(count>0) {
+			document.getElementById("deleteBtn").removeAttribute('disabled');
+			document.getElementById("openBtn").removeAttribute('disabled');
+		}
+		else {
+			document.getElementById("deleteBtn").disabled=true;
+			document.getElementById("openBtn").disabled=true;
+		}
 
 	})
 		document.addEventListener('keydown',function(e){
@@ -215,40 +222,55 @@ window.onload=function(){
 			document.getElementById("myModal1").style.display="none";
 	})
 	
+var sw=0;
 	$("#deleteBtn").click(function(){
-		if(window.confirm("숨김 처리 하시겠습니까?")){
-		var check1 = [];
-		var tds=[];
-		var data1=[];
-		var cmCheck=$("input[name=cmCheck]");
-		var trs = document.getElementById("main-tbody").getElementsByTagName("tr");
-		var count=0;
-		for(var i=1;i<cmCheck.length;i++){
-			if(cmCheck[i].checked == true) {
-				check1[count]= i-1;
-				count++;
-			}
-		}
-		for(var i=0;i<check1.length;i++){
-			tds[i] = trs[check1[i]].getElementsByTagName("td");
-			data1[i]=tds[i][1].innerHTML;
-		}
-		console.log(data1);
-		$.ajax({
-			url : "ajaxHide.sc",
-			traditional : true,
-			data :{fnoArr : data1},
-			success : function(){
-				window.alert("정상 처리 되었습니다.");
-				window.location.reload(true);
-			},
-			error : function(){
-				console.log("실패");
-			}
-		})
+		if(window.confirm("비공개 처리 하시겠습니까?")){
+			sw=0;
+			changeStatus();
 		}
 		
 	})
+	$("#openBtn").click(function(){
+		if(window.confirm("공개 처리 하시겠습니까?")){
+			sw=1;
+			changeStatus();
+		}
+		
+	})	
+	
+	
+	function changeStatus(){
+			var check1 = [];
+			var tds=[];
+			var data1=[];
+			var cmCheck=$("input[name=cmCheck]");
+			var trs = document.getElementById("main-tbody").getElementsByTagName("tr");
+			var count=0;
+			for(var i=1;i<cmCheck.length;i++){
+				if(cmCheck[i].checked == true) {
+					check1[count]= i-1;
+					count++;
+				}
+			}
+			for(var i=0;i<check1.length;i++){
+				tds[i] = trs[check1[i]].getElementsByTagName("td");
+				data1[i]=tds[i][1].innerHTML;
+			}
+			console.log(data1);
+			$.ajax({
+				url : "ajaxHide.sc",
+				traditional : true,
+				data :{fnoArr : data1,
+					sw: sw},
+				success : function(){
+					window.alert("정상 처리 되었습니다.");
+					window.location.reload(true);
+				},
+				error : function(){
+					console.log("실패");
+				}
+			})
+	}
 	
 	function enroll(){
 		var form = document.getElementById("enroll-form");

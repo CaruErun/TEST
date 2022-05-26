@@ -34,7 +34,6 @@ public class faqEnrollForm extends HttpServlet {
 		String faqCate = request.getParameter("faqCate");
 		String faqTitle = request.getParameter("faqTitle");
 		String faqContent = request.getParameter("faqContent");
-		System.out.println(faqContent);
 		FAQ f = new FAQ(faqNo, faqCate, faqTitle, faqContent);
 		request.setAttribute("faq", f);
 		request.getRequestDispatcher("/views/admin/serviceCenter/d_1_1.jsp").forward(request, response);

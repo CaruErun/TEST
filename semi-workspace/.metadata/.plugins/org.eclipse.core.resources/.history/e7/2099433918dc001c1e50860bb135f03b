@@ -1,0 +1,55 @@
+package com.kh.common;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class SendMaill
+ */
+@WebServlet("/SendMaill")
+public class SendMaill extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SendMaill() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String FROM = "GOODMAN@geoservice.co.kr";
+	    String FROMNAME = "지오서비스";
+	    String TO = "heyMan@naver.com";
+	    String SMTP_USERNAME = "GOODMAN@geoservice.co.kr";
+	    String SMTP_PASSWORD = "****";
+	    
+	    String HOST = "smtp.live.com";
+	    int PORT = 25;
+	    
+	    String SUBJECT = "메일 제목";
+	    
+	    String BODY = String.join(
+	        System.getProperty("line.separator"),
+	        "<h1>메일 내용</h1>",
+	        "<p>이 메일은 아름다운 사람이 보낸 아름다운 메일입니다!</p>."
+	    );
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

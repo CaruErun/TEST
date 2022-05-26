@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="loginMemberUser">
+	SELECT USER_NO, USER_NAME, U_STATUS, BAN_DATE
+	FROM MEMBER
+	WHERE USER_ID = ? AND USER_PW = ?
+</entry>
+<entry key="updateConnect">
+	UPDATE MEMBER
+	SET CONNECT_DATE = SYSDATE
+	WHERE USER_ID = ? AND USER_PW = ?
+</entry>
+
+<entry key="ajaxConfirmSign">
+	SELECT COUNT(*) "COUNT"
+	FROM MEMBER
+	WHERE USER_ID = ? OR EMAIL = ? OR PHONE = ?
+
+</entry>
+
+<entry key="insertMember">
+	INSERT INTO MEMBER(USER)
+
+</entry>
+</properties>

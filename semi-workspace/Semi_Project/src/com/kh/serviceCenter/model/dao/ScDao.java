@@ -13,6 +13,7 @@ import java.util.Properties;
 import com.kh.common.PageInfo;
 import com.kh.memManage.model.vo.Member;
 import com.kh.serviceCenter.model.vo.FAQ;
+import com.kh.serviceCenter.model.vo.QNA;
 
 public class ScDao {
 	Properties prop = new Properties();
@@ -73,10 +74,14 @@ public class ScDao {
 		
 		return FAQList;
 	}
-	public int ajaxHideSc(Connection conn, int[] fnoArr) {
+	public int ajaxHideSc(Connection conn, int[] fnoArr, int sw) {
 		PreparedStatement pstmt = null;
 		int result = 1;
-		String sql = prop.getProperty("ajaxHideSc");
+		String sql = "";
+		if(sw==0)
+		sql = prop.getProperty("ajaxHideSc");
+		else
+		sql = prop.getProperty("ajaxOpenSc");
 		try {
 			for(int i=0;i<fnoArr.length;i++) {
 				pstmt=conn.prepareStatement(sql);
@@ -184,6 +189,170 @@ public class ScDao {
 			close(pstmt);
 		}
 		return fList;
+	}
+	public int selectQNAListCount(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int listCount = 0;
+		String sql = prop.getProperty("selectQNAListCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			if(rset.next()) listCount = rset.getInt("COUNT");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return listCount;
+	}
+	
+	public ArrayList<QNA> selectQNAList(Connection conn, PageInfo pi) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<QNA> QNAList = new ArrayList<>();
+		String sql = prop.getProperty("selectQNAList");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (pi.getCurrentPage()-1)*pi.getBoardLimit()+1);
+			pstmt.setInt(2, pi.getCurrentPage()*pi.getBoardLimit());
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				QNAList.add(new QNA(rset.getInt("QNA_NO"),
+						rset.getString("CATE_NAME"),
+						rset.getString("QNA_ID"),
+						rset.getDate("QNA_ENTERDATE"),
+						rset.getString("QNA_TITLE"),
+						rset.getString("QNA_CONTENT"),
+						rset.getDate("QNA_ANSWERDATE"),
+						rset.getString("QNA_ANSWER"),
+						rset.getString("QNA_STATUS")));
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return QNAList;
+	}
+	public QNA ajaxSelectQNA(Connection conn, int qnaNo) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectQNA");
+		QNA q = new QNA();
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, qnaNo);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				q = new QNA(rset.getInt("QNA_NO"),
+						rset.getString("CATE_NAME"),
+						rset.getString("QNA_ID"),
+						rset.getDate("QNA_ENTERDATE"),
+						rset.getString("QNA_TITLE"),
+						rset.getString("QNA_CONTENT"),
+						rset.getDate("QNA_ANSWERDATE"),
+						rset.getString("QNA_ANSWER"),
+						rset.getString("QNA_STATUS"));
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return q;
+	}
+	public int ajaxEnrollAnswer(Connection conn, int qnaNo, String qnaAnswer) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = prop.getProperty("ajaxEnrollAnswer");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, qnaAnswer);
+			pstmt.setInt(2, qnaNo);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
+	public int searchQNACount(Connection conn, String qnaCate, String searchQna) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int listCount = 0;
+		String sql = "";
+		switch(qnaCate) {
+		case "title" : sql = prop.getProperty("searchQNACountTitle"); break;
+		case "qna-select" :  sql = prop.getProperty("searchQNACountselect"); break;
+		}
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, searchQna);
+			rset = pstmt.executeQuery();
+			if(rset.next())
+			listCount = rset.getInt("COUNT");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;
+	}
+	public ArrayList<QNA> searchQNA(Connection conn, String qnaCate, String searchQna, PageInfo pi) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<QNA> qList = new ArrayList<>();
+		String sql = "";
+		switch(qnaCate) {
+		case "title" : sql = prop.getProperty("searchQNATitle"); break;
+		case "qna-select" :  sql = prop.getProperty("searchQNAselect"); break;
+		}
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, searchQna);
+			pstmt.setInt(2, (pi.getCurrentPage()-1)*pi.getBoardLimit()+1);
+			pstmt.setInt(3, pi.getCurrentPage()*pi.getBoardLimit());
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				qList.add (new QNA(rset.getInt("QNA_NO"),
+						rset.getString("CATE_NAME"),
+						rset.getString("QNA_ID"),
+						rset.getDate("QNA_ENTERDATE"),
+						rset.getString("QNA_TITLE"),
+						rset.getString("QNA_CONTENT"),
+						rset.getDate("QNA_ANSWERDATE"),
+						rset.getString("QNA_ANSWER"),
+						rset.getString("QNA_STATUS")));
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return qList;
 	}
 
 }
