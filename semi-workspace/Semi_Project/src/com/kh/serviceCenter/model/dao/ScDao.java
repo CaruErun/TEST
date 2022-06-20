@@ -12,6 +12,7 @@ import java.util.Properties;
 
 import com.kh.common.PageInfo;
 import com.kh.memManage.model.vo.Member;
+import com.kh.product.model.vo.Product;
 import com.kh.serviceCenter.model.vo.FAQ;
 import com.kh.serviceCenter.model.vo.QNA;
 
@@ -46,6 +47,29 @@ public class ScDao {
 		
 		return listCount;
 	}
+	
+	public int selectUserFAQListCount(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int listCount = 0;
+		String sql = prop.getProperty("selectFAQListCount123");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			if(rset.next()) listCount = rset.getInt("COUNT");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return listCount;
+	}
+	
+	
 	public ArrayList<FAQ> selectFAQList(Connection conn, PageInfo pi) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -74,6 +98,38 @@ public class ScDao {
 		
 		return FAQList;
 	}
+	
+	public ArrayList<FAQ> selectUserFAQList(Connection conn, PageInfo pi) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<FAQ> FAQList = new ArrayList<>();
+		String sql = prop.getProperty("selectFAQList123");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (pi.getCurrentPage()-1)*pi.getBoardLimit()+1);
+			pstmt.setInt(2, pi.getCurrentPage()*pi.getBoardLimit());
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				FAQList.add(new FAQ(rset.getInt("FAQ_NO"),
+						rset.getString("CATE_NAME"),
+						rset.getString("FAQ_TITLE"),
+						rset.getString("FAQ_CONTENT"),
+						rset.getString("FAQ_STATUS")));
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return FAQList;
+	}
+	
+	
+	
 	public int ajaxHideSc(Connection conn, int[] fnoArr, int sw) {
 		PreparedStatement pstmt = null;
 		int result = 1;
@@ -96,6 +152,7 @@ public class ScDao {
 		}
 		return result;
 	}
+	
 	public int insertFAQ(Connection conn, FAQ faq) {
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -353,6 +410,230 @@ public class ScDao {
 			close(pstmt);
 		}
 		return qList;
+	}
+	public int UserSearchFAQTitleCount(Connection conn,String scContent) {
+		int listCount=0;
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("userSearchFAQTitleCount");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, scContent);
+			rset=pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount=rset.getInt("COUNT");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;
+		
+	}
+	public int userSerachFAQContentCount(Connection conn, String scContent) {
+		int listCount=0;
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("userSearchFAQContentCount");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, scContent);
+			rset=pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount=rset.getInt("COUNT");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return listCount;
+		
+	}
+	public ArrayList<FAQ> selectSearchTitleList(Connection conn, PageInfo pi, String scContent) {
+		ArrayList<FAQ> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("userSelectSearchTitleList");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			
+			//boardLimit = 10; 10개씩 
+			//currentPage= 1 => 시작값 1 끝 10
+			//currentPage= 2 => 시작값 11 끝 20
+			//currentPage= 3 => 시작값 21 끝 30
+			
+			//시작값 = (currentPage-1)*boardLimit + 1
+			//끝값 = currntPage*boardLimit
+			
+			int startRow = (pi.getCurrentPage()-1)*pi.getBoardLimit()+1;
+			int endRow = pi.getCurrentPage()*pi.getBoardLimit();
+			pstmt.setString(1, scContent);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			
+			rset=pstmt.executeQuery();
+			
+			while(rset.next()) {
+			list.add(new FAQ(rset.getInt("FAQ_NO"),
+					 rset.getString("CATE_NAME"),
+					 rset.getString("FAQ_TITLE"),
+					 rset.getString("FAQ_CONTENT")));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	
+	}
+	public ArrayList<FAQ> selectSearchContentList(Connection conn, PageInfo pi, String scContent) {
+		ArrayList<FAQ> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("userSelectSearchContentList");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			
+			//boardLimit = 10; 10개씩 
+			//currentPage= 1 => 시작값 1 끝 10
+			//currentPage= 2 => 시작값 11 끝 20
+			//currentPage= 3 => 시작값 21 끝 30
+			
+			//시작값 = (currentPage-1)*boardLimit + 1
+			//끝값 = currntPage*boardLimit
+			
+			int startRow = (pi.getCurrentPage()-1)*pi.getBoardLimit()+1;
+			int endRow = pi.getCurrentPage()*pi.getBoardLimit();
+			pstmt.setString(1, scContent);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			
+			rset=pstmt.executeQuery();
+			
+			while(rset.next()) {
+			list.add(new FAQ(rset.getInt("FAQ_NO"),
+					 rset.getString("CATE_NAME"),
+					 rset.getString("FAQ_TITLE"),
+					 rset.getString("FAQ_CONTENT")));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+	}
+	public FAQ userDetailFAQ(Connection conn, int faqNo) {
+		FAQ f = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("userDetailFAQ");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, faqNo);
+			
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				f=new FAQ(rset.getInt("FAQ_NO"),
+						  rset.getString("CATE_NAME"),
+						  rset.getString("FAQ_TITLE"),
+						  rset.getString("FAQ_CONTENT"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return f;
+	}
+	public ArrayList<QNA> selectUserQNA(Connection conn, String userId) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		ArrayList<QNA> qList = new ArrayList<>();
+		String sql = prop.getProperty("selectUserQNA");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			rset=pstmt.executeQuery();
+			
+			while(rset.next()) {
+				qList.add(new QNA(rset.getInt("QNA_NO"),
+						rset.getString("CATE_NAME"),
+						rset.getString("QNA_ID"),
+						rset.getDate("QNA_ENTERDATE"),
+						rset.getString("QNA_TITLE"),
+						rset.getString("QNA_CONTENT"),
+						rset.getDate("QNA_ANSWERDATE"),
+						rset.getString("QNA_ANSWER"),
+						rset.getString("QNA_STATUS")));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return qList;
+	}
+	public int insertUserQNA(Connection conn, QNA q) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = prop.getProperty("insertUserQNA");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, q.getQnaCate());
+			pstmt.setString(2, q.getQnaId());
+			pstmt.setString(3, q.getQnaTitle());
+			pstmt.setString(4, q.getQnaContent());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 
 }

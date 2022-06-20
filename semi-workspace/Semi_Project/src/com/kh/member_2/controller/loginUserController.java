@@ -38,29 +38,35 @@ public class loginUserController extends HttpServlet {
 			String userPw = request.getParameter("userPw");
 			MemberUser mu = new MemberUserService().loginUser(userId, userPw);
 
-			if(mu!=null && mu.getU_status().equals("Y")) {
-				session.setAttribute("loginN", -1);
-				session.setAttribute("loginUser", mu);
-				response.sendRedirect("/Semi/views/semi/main.jsp");
+			if(mu==null) {
+				session.setAttribute("alertMsg", "로그인 정보가 일치하지 않습니다");
+				response.sendRedirect("/Semi/views/common/login.jsp");
 			}else {
-				if(mu.getU_status().equals("N")) {
+				if(mu.getU_status().equals("Y")) {
+					session.setAttribute("loginUser", mu);
+					response.sendRedirect("/Semi/views/semi/main.jsp");
+				}
+				else if(mu.getU_status().equals("N")) {
 					session.setAttribute("loginN", 2);
-					session.setAttribute("userNo", mu.getUserNo());}
+					session.setAttribute("userNo", mu.getUserNo());
+					response.sendRedirect("/Semi/views/common/login.jsp");}
 				else if(mu.getU_status().equals("S")) {
-					session.setAttribute("banDate", mu.getBanDate());
-					session.setAttribute("loginN", 3);
+					session.setAttribute("alertMsg", "회원님은"+ mu.getBanDate() +"까지 정지 상태입니다.");
+					response.sendRedirect("/Semi/views/common/login.jsp");
 					}
 				else if(mu.getU_status().equals("H")) {
 					session.setAttribute("loginN", 4);
 					session.setAttribute("userNo", mu.getUserNo());
+					response.sendRedirect("/Semi/views/common/login.jsp");
 				}
-				else if(mu.getU_status().equals("U")) {session.setAttribute("loginN", 5);}
-				else {session.setAttribute("loginN", 0);}
-				response.sendRedirect("/Semi/views/common/login.jsp");
+				else if(mu.getU_status().equals("U")) {
+				session.setAttribute("alertMsg", "회원님은 영구정지 상태입니다.");
+				response.sendRedirect("/Semi/views/common/login.jsp");}
+
 			}
 		}else {
 			request.getSession().removeAttribute("loginUser");
-			session.setAttribute("loginN", 1);
+			session.setAttribute("alertMsg", "성공적으로 로그아웃 되었습니다.");
 			response.sendRedirect("/Semi/views/semi/main.jsp");
 		}
 		

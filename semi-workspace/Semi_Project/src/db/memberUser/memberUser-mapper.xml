@@ -2,7 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <entry key="loginMemberUser">
-	SELECT USER_NO, USER_NAME, U_STATUS, BAN_DATE
+	SELECT USER_NO, USER_ID, USER_NAME, EMAIL, PHONE, U_STATUS, BAN_DATE
 	FROM MEMBER
 	WHERE USER_ID = ? AND USER_PW = ?
 </entry>
@@ -40,6 +40,13 @@
 	UPDATE MEMBER
 	SET U_STATUS = 'Y', BAN_DATE = NULL
 	WHERE TO_CHAR(SYSDATE, 'YYYY/MM/dd') >= TO_CHAR(BAN_DATE, 'YYYY/MM/dd') AND U_STATUS='S'
+
+</entry>
+
+<entry key="dormancyManage">
+	UPDATE MEMBER
+	SET U_STATUS = 'H'
+	WHERE CONNECT_DATE IS NOT NULL AND TO_CHAR(SYSDATE, 'YYYY/MM/dd') <![CDATA[>=]]> TO_CHAR((CONNECT_DATE+365), 'YYYY/MM/dd') AND U_STATUS='Y'
 
 </entry>
 </properties>

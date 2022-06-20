@@ -47,10 +47,10 @@ public class reportListController extends HttpServlet {
 		
 		ArrayList<Report> rList = new reportService().selectRepList(pi);
 		if(rList!=null) {
-		request.setAttribute("adCate",4);
+		request.setAttribute("adCate",8);
 		request.setAttribute("pi",pi);
 		request.setAttribute("rList", rList);
-		request.getRequestDispatcher("/views/admin/memManage/c_2.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/admin/memManage/reportList.jsp").forward(request, response);
 		}
 	}
 

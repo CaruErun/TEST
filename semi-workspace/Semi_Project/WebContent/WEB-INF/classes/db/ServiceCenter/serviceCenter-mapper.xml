@@ -5,6 +5,13 @@
 	SELECT COUNT(*) "COUNT"
 	FROM FAQ
 </entry>
+
+<entry key="selectFAQListCount123">
+	SELECT COUNT(*) "COUNT"
+	FROM FAQ
+	WHERE FAQ_STATUS='Y'
+</entry>
+
 <entry key="selectFAQList">
 	SELECT *
 	FROM(
@@ -13,6 +20,18 @@
 	SELECT FAQ_NO, CATE_NAME, FAQ_TITLE, FAQ_CONTENT, FAQ_STATUS
 	FROM FAQ F, CATEGORY C
 	WHERE F.FAQ_CATE = C.CATE_NO
+    ORDER BY FAQ_NO DESC) A)
+	WHERE R BETWEEN ? AND ?
+</entry>
+
+<entry key="selectFAQList123">
+	SELECT *
+	FROM(
+	SELECT ROWNUM R, A.*
+	FROM(
+	SELECT FAQ_NO, CATE_NAME, FAQ_TITLE, FAQ_CONTENT, FAQ_STATUS
+	FROM FAQ F, CATEGORY C
+	WHERE F.FAQ_CATE = C.CATE_NO AND FAQ_STATUS = 'Y'
     ORDER BY FAQ_NO DESC) A)
 	WHERE R BETWEEN ? AND ?
 </entry>
@@ -31,7 +50,7 @@
 
 <entry key="insertFAQ">
 	INSERT INTO FAQ(FAQ_NO, FAQ_CATE, FAQ_TITLE, FAQ_CONTENT, FAQ_STATUS)
-	VALUES(SEQ_FNO.NEXTVAL, ?,?,?,'Y')
+	VALUES(SEQ_FANO.NEXTVAL, ?,?,?,'Y')
 </entry>
 
 <entry key="updateFAQ">
@@ -140,6 +159,99 @@
 	WHERE R BETWEEN ? AND ?
 </entry>
 
+	<entry key="userSearchFAQTitleCount">
+		SELECT COUNT(*) COUNT
+		FROM FAQ
+		WHERE INSTR(FAQ_TITLE,?)>0
+	</entry>
+	
+	<entry key="userSearchFAQContentCount">
+		SELECT COUNT(*) COUNT
+		FROM FAQ
+		WHERE INSTR(FAQ_CONTENT,?)>0
+	</entry>
+	
+	<entry key="userSelectSearchTitleList">
+        SELECT*
+	   		FROM(
+	    	SELECT ROWNUM RNUM,A.*
+	        FROM
+	        	(
+		         SELECT FAQ_NO,CATE_NAME,FAQ_TITLE,FAQ_CONTENT
+		         FROM FAQ
+		         JOIN CATEGORY ON(FAQ_CATE = CATE_NO)
+                 WHERE INSTR(FAQ_TITLE,?)>0
+                 AND FAQ_STATUS='Y'
+		         ORDER BY FAQ_NO DESC
+	           	) A
+	    )
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<entry key="userSelectSearchContentList">
+        SELECT*
+	   		FROM(
+	    	SELECT ROWNUM RNUM,A.*
+	        FROM
+	        	(
+		         SELECT FAQ_NO,CATE_NAME,FAQ_TITLE,FAQ_CONTENT
+		         FROM FAQ
+		         JOIN CATEGORY ON(FAQ_CATE = CATE_NO)
+                 WHERE INSTR(FAQ_CONTENT,?)>0
+                 AND FAQ_STATUS='Y'
+		         ORDER BY FAQ_NO DESC
+	           	) A
+	    )
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
 
+	<entry key="userDetailFAQ">
+	SELECT FAQ_NO,CATE_NAME,FAQ_TITLE,FAQ_CONTENT 
+	FROM FAQ 
+	JOIN CATEGORY ON(FAQ_CATE=CATE_NO)
+	WHERE FAQ_NO=?
+	AND FAQ_STATUS='Y'
+	</entry>
+
+	<entry key="userBasket">
+
+	SELECT BASKET_NO,PRO_IMAGE,PRO_NAME,PRO_PRICE,PAY_ORDERNO
+	FROM BASKET B
+	JOIN PRODUCT USING(PRO_NO)
+	WHERE BA_STATUS='Y'AND USER_NO = ?
+	
+	</entry>
+<entry key="selectUserQNA">
+	
+	SELECT QNA_NO, CATE_NAME, QNA_ID, QNA_ENTERDATE, QNA_TITLE, QNA_CONTENT, QNA_ANSWERDATE, QNA_ANSWER, QNA_STATUS
+	FROM QNA Q, CATEGORY C
+	WHERE Q.QNA_CATE = C.CATE_NO AND QNA_ID = ?
+	ORDER BY QNA_ENTERDATE ASC	
+
+</entry>
+
+<entry key ="insertUserQNA">
+	INSERT INTO QNA(QNA_NO, QNA_CATE, QNA_ID, QNA_ENTERDATE, QNA_TITLE, QNA_CONTENT)
+	VALUES (SEQ_QNO.NEXTVAL, ?, ?, SYSDATE, ?, ?)
+</entry>
+
+<entry key="insertBasket">
+	INSERT INTO BASKET(
+				BASKET_NO, 
+				USER_NO, 
+				PRO_NO, 
+				PAY_ORDERNO, 
+				BA_STATUS)
+	VALUES(SEQ_BANO.NEXTVAL, ?,?,?,'Y')
+
+
+</entry>
+
+<entry key="userBaskets">
+	SELECT *
+	FROM BASKET
+	WHERE BA_STATUS ='Y'
+	
+	</entry>
 
 </properties>

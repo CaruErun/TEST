@@ -50,12 +50,12 @@ public class searchQNAController extends HttpServlet {
 		}
 		PageInfo pi = new PageInfo(listCount,currentPage,pageLimit,boardLimit,maxPage,startPage, endPage);
 		ArrayList<QNA> qList = new ScService().searchQNA(qnaCate, searchQna , pi);
-		request.setAttribute("adCate",6);
+		request.setAttribute("adCate",10);
 		request.setAttribute("pi",pi);
 		request.setAttribute("qList", qList);
 		request.setAttribute("qnaCate", qnaCate);
 		request.setAttribute("searchQna", searchQna);
-		request.getRequestDispatcher("/views/admin/serviceCenter/d_2_1.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/admin/serviceCenter/QNA_search.jsp").forward(request, response);
 	}
 
 	/**

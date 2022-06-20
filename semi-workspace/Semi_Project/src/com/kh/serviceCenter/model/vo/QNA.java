@@ -28,6 +28,14 @@ public class QNA {
 		this.qnaAnswer = qnaAnswer;
 		this.qnaStatus = qnaStatus;
 	}
+	
+	public QNA(String qnaId, String qnaCate, String qnaTitle, String qnaContent) {
+		super();
+		this.qnaId = qnaId;
+		this.qnaCate = qnaCate;
+		this.qnaTitle = qnaTitle;
+		this.qnaContent = qnaContent;
+	}
 	public int getQnaNo() {
 		return qnaNo;
 	}

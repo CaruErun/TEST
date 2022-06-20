@@ -87,4 +87,9 @@
 	FROM REPORT
 	WHERE REP_REPOTER = ?
 </entry>
+
+<entry key="ajaxReportUuser">
+	INSERT INTO REPORT(REP_NO, REP_ENTERDATE, REP_TITLE, REP_CONTENT, REP_USER_ID, REP_REPOTER, REP_STATUS)
+	VALUES(SEQ_RENO.NEXTVAL, SYSDATE, '홍보용 리뷰입니다.', '홍보용 리뷰가 올려져 있습니다.', ?, ?, 'N')
+</entry>
 </properties>

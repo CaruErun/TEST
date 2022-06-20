@@ -30,6 +30,7 @@ public class ajaxReturnMemberController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int userNo = Integer.parseInt(request.getParameter("userNo"));
+		System.out.println(userNo);
 		int result = new MemberUserService().returnMember(userNo);
 		response.setContentType("text/html; charset=UTF-8");
 		response.getWriter().print(result);

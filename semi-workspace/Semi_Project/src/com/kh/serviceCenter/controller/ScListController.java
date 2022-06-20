@@ -51,14 +51,14 @@ public class ScListController extends HttpServlet {
 		
 		ArrayList<FAQ> FAQList = new ScService().selectFAQList(pi);
 		if(FAQList!=null) {
-		request.setAttribute("adCate",5);
+		request.setAttribute("adCate",9);
 		request.setAttribute("pi",pi);
 		request.setAttribute("FAQList", FAQList);
 		if(ajaxSwitch==1) {
 			response.setContentType("application/json; charset=UTF-8");
 			new Gson().toJson(FAQList,response.getWriter());
 		}
-		else request.getRequestDispatcher("/views/admin/serviceCenter/d_1.jsp").forward(request, response);
+		else request.getRequestDispatcher("/views/admin/serviceCenter/FAQList.jsp").forward(request, response);
 		}
 	}
 

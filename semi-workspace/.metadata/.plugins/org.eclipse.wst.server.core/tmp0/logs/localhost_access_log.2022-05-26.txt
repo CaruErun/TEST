@@ -713,3 +713,15 @@
 0:0:0:0:0:0:0:1 - - [26/May/2022:20:01:54 +0900] "GET /Semi/ajaxQNAModal.sc?qno=51 HTTP/1.1" 200 252
 0:0:0:0:0:0:0:1 - - [26/May/2022:20:02:19 +0900] "POST /Semi/searchQNA.sc HTTP/1.1" 200 20245
 0:0:0:0:0:0:0:1 - - [26/May/2022:20:02:22 +0900] "GET /Semi/QNAList.sc?cpage=1 HTTP/1.1" 200 23385
+127.0.0.1 - - [26/May/2022:20:08:17 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [26/May/2022:20:08:18 +0900] "GET /Semi/ HTTP/1.1" 200 342
+0:0:0:0:0:0:0:1 - - [26/May/2022:20:08:18 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [26/May/2022:20:08:19 +0900] "GET /Semi/views/common/adminMenubar.jsp HTTP/1.1" 200 13905
+0:0:0:0:0:0:0:1 - - [26/May/2022:20:08:20 +0900] "GET /Semi/views/payment/paymentform.jsp HTTP/1.1" 200 771
+0:0:0:0:0:0:0:1 - - [26/May/2022:20:08:27 +0900] "GET /Semi/views/payment/kakao.jsp?name=%EB%85%B8%EB%AF%BC%EA%B7%9C&email=alsrbwlw%40naver.com&phone=01071535291&address=%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C&totalPrice=100 HTTP/1.1" 200 2957
+0:0:0:0:0:0:0:1 - - [26/May/2022:20:08:30 +0900] "GET /Semi/views/semi/main.jsp HTTP/1.1" 200 9017
+0:0:0:0:0:0:0:1 - - [26/May/2022:20:08:30 +0900] "GET /Semi/views/semi/resources/css/main.css HTTP/1.1" 404 865
+0:0:0:0:0:0:0:1 - - [26/May/2022:20:08:30 +0900] "GET /Semi/ajaxBanManage.lo HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [26/May/2022:20:08:31 +0900] "GET /Semi/views/semi/newMember.jsp HTTP/1.1" 200 16707
+0:0:0:0:0:0:0:1 - - [26/May/2022:20:08:31 +0900] "GET /Semi/resources/css/login.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [26/May/2022:20:08:31 +0900] "GET /Semi/ajaxBanManage.lo HTTP/1.1" 200 -

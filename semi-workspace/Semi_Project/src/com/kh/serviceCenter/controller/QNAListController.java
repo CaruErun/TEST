@@ -47,10 +47,10 @@ public class QNAListController extends HttpServlet {
 		
 		ArrayList<QNA> QNAList = new ScService().selectQNAList(pi);
 		if(QNAList!=null) {
-		request.setAttribute("adCate",6);
+		request.setAttribute("adCate",10);
 		request.setAttribute("pi",pi);
 		request.setAttribute("QNAList", QNAList);
-		request.getRequestDispatcher("/views/admin/serviceCenter/d_2.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/admin/serviceCenter/QNAList.jsp").forward(request, response);
 		}
 	}
 

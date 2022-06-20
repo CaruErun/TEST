@@ -57,11 +57,11 @@ public class reportSearchController extends HttpServlet {
 
 		request.setAttribute("reportCate", reportCate);
 		request.setAttribute("searchUser", searchUser);
-		request.setAttribute("adCate",4);
+		request.setAttribute("adCate",8);
 		request.setAttribute("pi",pi);
 		request.setAttribute("rList", rList);
 		
-		request.getRequestDispatcher("/views/admin/memManage/c_2_1.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/admin/memManage/report_search.jsp").forward(request, response);
 	}
 
 	/**

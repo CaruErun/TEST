@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
-<entry key="selectMemManage">
-	SELECT USER_NO, USER_NNAME, 
-	FROM MEMBER
-	WHERE USER_ID = ? AND USER_PW = ?
-</entry>
-</properties>

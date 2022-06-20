@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DS SPORTS</title>
 </head>
 <body>
 
@@ -13,7 +13,7 @@
 	
 	<a href="views/semi/main.jsp">사용자 페이지</a>
 	<a href="views/common/adminMenubar.jsp">어드민 페이지</a>
-	<a href="views/payment/paymentform.jsp">결제페이지</a>
+
 	
 </body>
 </html>

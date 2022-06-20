@@ -50,12 +50,12 @@ public class serachFAQController extends HttpServlet {
 		}
 		PageInfo pi = new PageInfo(listCount,currentPage,pageLimit,boardLimit,maxPage,startPage, endPage);
 		ArrayList<FAQ> fList = new ScService().searchFAQ(faqCate, searchFaq , pi);
-		request.setAttribute("adCate",5);
+		request.setAttribute("adCate",9);
 		request.setAttribute("pi",pi);
 		request.setAttribute("fList", fList);
 		request.setAttribute("faqCate", faqCate);
 		request.setAttribute("searchFaq", searchFaq);
-		request.getRequestDispatcher("/views/admin/serviceCenter/d_1_2.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/admin/serviceCenter/FAQ_search.jsp").forward(request, response);
 	}
 
 	/**

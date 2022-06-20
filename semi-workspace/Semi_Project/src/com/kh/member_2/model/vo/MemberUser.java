@@ -44,6 +44,16 @@ public class MemberUser {
 		this.banDate = banDate;
 	}
 	
+	public MemberUser(int userNo, String userId, String userName, String email, String phone, String u_status, Date banDate) {
+		super();
+		this.userNo = userNo;
+		this.userId = userId;
+		this.userName = userName;
+		this.email = email;
+		this.phone = phone;
+		this.u_status = u_status;
+		this.banDate = banDate;
+	}
 	public MemberUser(String userId, String userPw, String userName, Date userBirth, String gender, String email,
 			String phone) {
 		super();

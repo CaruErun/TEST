@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DS SPORTS</title>
 <link rel="stylesheet" href="/Semi/resources/css/login.css">
 </head>
 <body>
@@ -37,15 +37,15 @@
 			</table>
 			<br><br>
 			<button type="submit" class="btn btn-success">로그인</button>
-			<button type="button" class="btn btn-danger">회원가입</button>
+			<button type="button" class="btn btn-danger" onclick="location.href='/Semi/views/semi/newMember.jsp'">회원가입</button>
 
 		</div>
 		</form>
-		<div id="login_content1_3">
+	<!-- 	<div id="login_content1_3">
 			<br><br>
 			<a href="#">아이디 찾기</a> |
 			<a href="#">비밀번호 찾기</a>
-		</div>
+		</div> -->
 	</div>
 </body>
 </html>

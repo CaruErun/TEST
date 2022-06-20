@@ -130,4 +130,16 @@ public class reportService {
 		return listCount;
 	}
 
+	public void ajaxReportUuser(String userId, String repoter) {
+		Connection conn = getConnection();
+		
+		int result = new reportDao().ajaxReportUuser(conn, userId, repoter);
+		
+		if(result>0) commit(conn);
+		else rollback(conn);
+
+		close(conn);
+		
+	}
+
 }

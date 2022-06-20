@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMapper">
+<!-- namespace : 해당 mapper 고유 별칭 -->
+	
+	<!-- 
+		* DML 문일 경우
+		 <(insert/update/delete) id="식별자" parameterType="홀더에 set 할 타입 (alias 허용)"/>
+		   홀더가 없으면 parameterType 생략 가능
+		  resultType이 자동 int 이므로 속성 필요 없음	
+			
+		* select 문일 경우
+		 <select id="식별자" parameterType="홀더에 set 할 타입 (alias 허용) [resultType="조회 결과 반환 타입(자바 제공 자료형)" or resultMap="조회결과 매핑할 resultMap id"]/>
+		   홀더가 없으면 parameterType 생략 가능
+		  반드시 resultType or resultMap 지정해야함
+		
+		?(위치홀더)대신 #{필드명 or 변수명 or map 키 값} 작성
+		
+		* resultMap : mybatis 핵심 기능
+		 - ResultSet으로 부터 조회된 컬럼 값을 뽑아 직접 지정 하던 방식 과 달리 선언 후 사용 시 자동 매핑
+		 
+		<resultMap id="식별자" type="조회 결과 반환 타입(vo 객체 타입, alias 허용)">
+			<result column="조회 결과 반환 받고자 하는 DB 컬럼명" property="결과 담고자 하는 필드명"/>
+		</resultMap> 
+	 -->
+	<!-- select 구문에서 원하는 정보를 찾기 위한 mapper -->
+	<resultMap type="member" id="memberResultSet">
+		<result column="USER_NO" property="userNo"/>
+		<result column="USER_ID" property="userId"/>
+		<result column="USER_PWD" property="userPwd"/>
+		<result column="USER_NAME" property="userName"/>
+		<result column="EMAIL" property="email"/>
+		<result column="BIRTHDAY" property="birthday"/>
+		<result column="GENDER" property="gender"/>
+		<result column="PHONE" property="phone"/>
+		<result column="ADDRESS" property="address"/>
+		<result column="ENROLL_DATE" property="enrollDate"/>
+		<result column="MODIFY_DATE" property="modifyDate"/>
+		<result column="STATUS" property="status"/>
+		
+		
+	
+	</resultMap>
+
+  <insert id="insertMember" parameterType="member"><!-- alias 별칭 사용 -->
+  	INSERT INTO MEMBER(USER_NO, USER_ID, USER_PWD, USER_NAME, EMAIL, BIRTHDAY, GENDER, PHONE, ADDRESS)
+  	VALUES(SEQ_UNO.NEXTVAL, #{userId}, #{userPwd}, #{userName}, #{email}, #{birthday}, #{gender}, #{phone}, #{address})
+  </insert>
+  
+  <select id="loginMember" resultMap="memberResultSet">
+  	SELECT *
+  	FROM MEMBER
+  	WHERE USER_ID = #{userId} AND USER_PWD = #{userPwd} AND STATUS='Y'
+  </select>
+  
+</mapper>

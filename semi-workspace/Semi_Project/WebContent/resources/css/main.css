@@ -1,235 +1,81 @@
-/* common */
-
-body{
-  color: #333;
-  font-size: 16px;
-  line-height: 1.4;
-  font-family: sans-serif;
-  position: relative;
-  left: 34px;
-}
-img {
- display: block;
-}
-
-/* header */
-header{
+.middle-bottom{
   width: 100%;
-  height: 200px;
-}
-header .inner{
-  position: relative;
-  width: 1100px;
-  height: 120px;
-}
-header .inner .logo{
-  height: 90px;
+  height: 700px;
   position: absolute;
-  top: 60px;
-  bottom: 0;
-  left: 60px;
-}
-header .top-navi{
- 
-  right: 170px;
-  top: 10px;
-  position: absolute;
+  margin: 0 50px;
   
 }
-header .top-navi ul.navi {
-  display: flex;
- 
-  
-}
-header .top-navi ul.navi li{
-  position: relative;
-  list-style: none;
-
-}
-header .top-navi ul.navi li::before{
-  content: "";
-  width: 1px;
-  height: 12px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-}
-header .top-navi ul.navi li a{
-  font-size: 18px;
-  padding: 10px 15px;
-  display: block;
-  color: black;
-  text-decoration-line: none;
-}
-header .top-navi ul.navi li a:hover{
-  
-  color: antiquewhite;
-}
-header .search{
-  position: absolute;
-  padding: 30px;
-  height: 50px;
-  width: 900px;
-  left: 570px;
-  top: 75px;
-  
-}
-header .search .material-icons{
-  font-size: 44px;
-  position: absolute;
-  right: 120px;
-  top: 35px;
-
-
-}
-header .search>input{
-  height: inherit;
-  width: 800px;
-  left: inherit;
-  
-}
-header .order{
-  height: 100px;
-  width: 200px;
-  position: absolute;
-  right: 200px;
-  top: 110px;
-}
-header .order #order a .material-symbols-outlined{
-  font-size: 44px;
-  position: absolute;
-  right: 100px;
-  color: #333;
-
-
-}
-header .order #favor a .material-symbols-outlined{
-  font-size: 44px;
-  position: absolute;
-  color: #333;
-}
-
-.navigator{
-  margin: 40px 0;
-}
-#navi{
-  list-style-type: none;
-            height: 100%;
-}
-#navi>li{
-
-  /*방법 1 + #navi a{ transform : scale(1); 추가하기}*/
-  /* float: left; */
-  /* height: 100%;
-  width: 20%;
-  text-align: center; */
-
-  /*방법 2*/
-  display: inline-block;
-  width: 15%;
-  height: 42px;
-  text-align: center;
-
-  vertical-align: middle;/*inline요소들의 수직정렬 기준*/
-  background-color: lightskyblue;
-  border: 1px solid;
-  
-}
-#navi a{
-  /* border: 1px solid red; */
-  color: #333;
-  text-decoration: none;
-  font-size: 23px;
-  font-weight: bold;
-  display: block;
+.middle-bottom .middle{
   width: 100%;
-  line-height: 41px;
-
-  /* transform: scale(1); */
-}
-#navi a:hover{
-  font-size: 20px;
-  color: brown;
-}
-#navi>li>ul{
+  height: 300px;
   position: relative;
-  margin: auto;
-  list-style-type: none;
-  padding: 0px;
-  font-size: 43px;
-  text-align: center;
-  display: none;
-}
-#navi>li>ul a{
-  
-  font-size: 23px;
-  margin: 30px 0;
-  text-align: center;
-}
-#navi>li>ul a:hover{
-  font-size: 20px;
-  display : block;
-}
-
-#navi>li>a:hover+ul {
-  /* 평소에는 안보여지다가 마우스가 올라가는 순간 펼쳐지는 효과 부여 2단계 */
-  display : block;
- /* 메인메뉴에만 마우스가 올라갈 때 유지가 되므로 */
-background-color: lightslategray;
-
-border: 1px solid black;
-
-}
-#navi>li>a:hover+ul>li{
-  border: 1px solid black;
+  left: 50px;
   z-index: -1;
-  
-}
-.middle{
-  width: 1800px;
-  height: 500px;
-  margin: 40px 40px;
-  padding: 10px;
-  position: relative;
-  
 }
 .middle #pop-pr{
-  width: 90%;
-  height: 500px;
-  float: left;
+  width: 40%;
+  height: 300px;
+  display: inline-block;
+  z-index: -1;
 }
 .middle #pop-pr img{
-  width: 92%;
-  height: 500px;
+  padding: 30px 70px;
+  width: 100%;
+  height: 300px;
+  z-index: -1;
 }
 .middle #notice{
-  background-color: saddlebrown;
-  width: 10%;
-  height: inherit;
-  float: left;
+  
+  width: 8%;
+  right: 150px;
+  height: 400px;
   text-align: center;
   font-size: 24px;
+  position: fixed;
+  display: inline-block;
+  z-index: 2;
+  top: 450px;
+  border: 1px solid black;
 }
 .middle #notice #content{
   background-color: aliceblue;
-  position: absolute;
-  width: 10%;
-  height: 350px;
-  bottom: 10px;
+  position: relative;
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  border-top:  1px solid black;
+  text-align: center;
+  display: inline-block;
+  right: 0px;
+  
+  
 }
 .middle #notice #content li{
- list-style: none;
- font-size: 20px;
+  list-style: none;
+  font-size: 16px;
+  width: 100%;
+  height: 33%;
+  
+  
 }
-.pop-gym{
-  width: 1800px;
-  height: 400px;
-
-  margin: 10px 45px;
-
+.middle #notice a{
+  z-index: 2;
+  text-align: center;
+  text-decoration: none;
 }
-.pop-gym img{
+
+.middle-bottom .pop-gym{
+  
+  width: 1400px;
+  height: 100%;
+  margin: 15px 30px;
+  position: absolute;
+  top: 330px;
+  
+
+  
+}
+.middle-bottom .pop-gym img{
   height: 200px;
   width: 90%;
   margin: 5px;
@@ -255,13 +101,17 @@ border: 1px solid black;
   height: inherit;
 }
 #footer{
-  margin: 30px;
+  width: 1400px;
+  height: 300px;
+  margin: 15px 30px;
+  position: absolute;
+  top: 900px;
 }
 #footer>div{
   width: 100%;
 }
 #footer_1{
-  height: 20%;
+  height: 30px;
   padding-top: 5px;
 }
 #footer_2{

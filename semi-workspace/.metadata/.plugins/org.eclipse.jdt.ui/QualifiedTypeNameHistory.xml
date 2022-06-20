@@ -4,10 +4,15 @@
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="com.kh.memManage.model.vo.Member"/>
 <fullyQualifiedTypeName name="com.kh.serviceCenter.model.dao.ScDao"/>
-<fullyQualifiedTypeName name="com.kh.common.JDBCTemplate"/>
 <fullyQualifiedTypeName name="javax.mail.Authenticator"/>
 <fullyQualifiedTypeName name="javax.mail.Message"/>
 <fullyQualifiedTypeName name="javax.mail.Session"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="com.kh.member_2.model.vo.Address"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="com.kh.common.JDBCTemplate"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="org.jsoup.select.Elements"/>
+<fullyQualifiedTypeName name="org.jsoup.nodes.Element"/>
+<fullyQualifiedTypeName name="java.net.URLEncoder"/>
 </qualifiedTypeNameHistroy>

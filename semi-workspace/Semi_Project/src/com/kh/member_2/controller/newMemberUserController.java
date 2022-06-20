@@ -59,7 +59,7 @@ public class newMemberUserController extends HttpServlet {
 		if(result>0) {
 			result = new MemberUserService().insertAddress(ar);
 			if(result>0) {
-				session.setAttribute("loginN", 10);
+				session.setAttribute("alertMsg", "회원가입이 성공적으로 완료되었습니다.");
 				response.sendRedirect("/Semi/views/semi/main.jsp");
 			}
 		}else {

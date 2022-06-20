@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="open"/>
+		<item key="selection" value="userBaskets"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="open"/>
-			<item value="ajax"/>
-			<item value="session"/>
-			<item value="rsp.imp_uid"/>
-			<item value="host"/>
-			<item value="enroll"/>
-			<item value="z-index"/>
-			<item value="address"/>
-			<item value="sample4_"/>
-			<item value="guide"/>
-			<item value="회원"/>
-			<item value="submit"/>
-			<item value="ajaxsw"/>
-			<item value="reportList.re"/>
-			<item value="manage.mm"/>
+			<item value="userBaskets"/>
+			<item value="userBa"/>
+			<item value="insertBas"/>
+			<item value="noticedetailmain"/>
+			<item value="NoticeCou"/>
+			<item value="NoticeCout"/>
+			<item value="noticedeta"/>
+			<item value="noticedate"/>
+			<item value="pr"/>
+			<item value="insertReview"/>
+			<item value="selectReview"/>
+			<item value="insert"/>
+			<item value="insrt&apos;"/>
+			<item value="selectReviewList"/>
+			<item value="pre"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>

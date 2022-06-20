@@ -2,18 +2,16 @@
     pageEncoding="UTF-8"%>
     <%
     
-    
-    
     %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DS SPORTS</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="./resources/css/main.css">
+  <link rel="stylesheet" href="/Semi/resources/css/main.css">
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -25,9 +23,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<%@include file="/views/common/menubar.jsp"%>
+ <%@ include file="/views/common/menubar.jsp"%>
 
- 
+      <!--중간부터 끝-->
+      <div class="middle-bottom">
 
       <!-- 인기상품 + 공지 영역-->
       <div class="middle">
@@ -35,15 +34,18 @@
         <div id="pop-pr">
         <img src="https://i.ytimg.com/vi/lY3__IHES6A/maxresdefault.jpg" alt="pop-pr">
         </div>
+        
         <!-- 공지사항 -->
-        <div id="notice">공지사항
+        <div id="notice">
+          <h4>공지사항</h4>
             <div id="content">
-              <li><a href="./notice.html">공지제목1</a></li>
-              <li><a href="./notice.html">공지제목2</a></li>
-              <li><a href="./notice.html">공지제목3</a></li>
+              <li><a href="<%=contextPath %>/listt.no?cpage=1"><h5>공지</h5></a></li>
+              <li><a href="<%=contextPath %>/listt.no?cpage=1"><h5>공지</h5></a></li>
+              <li><a href="<%=contextPath %>/listt.no?cpage=1"><h5>공지</h5></a></li>
             </div>
         </div>
       </div>
+    
       <!-- 인기상품 + 공지 영역 여기까지-->
       <!-- 인기 헬스장-->
       <div class="pop-gym">
@@ -60,10 +62,11 @@
           <textarea name="gym1-text" id="gym1-text" cols="30" rows="10"></textarea>
         </div>
       </div>
+    
       <!-- 인기 헬스장 여기까지-->
       <div id="footer">
         <div id="footer_1">
-            <a href="#">이용약관</a> |
+            <a href="#" disable>이용약관</a> |
             <a href="#">개인정보취급방침</a> |
             <a href="#">인재채용</a> |
             <a href="#">고객센터</a>
@@ -79,5 +82,13 @@
             <p id="p2">Copyright © 1998-2022 KH Information Educational Institute All Right Reserved</p>
         </div>
     </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js" integrity="sha512-nTHzMQK7lwWt8nL4KF6DhwLHluv6dVq/hNnj2PBN0xMl2KaMm1PM02csx57mmToPAodHmPsipoERRNn4pG7f+Q==" crossorigin="anonymous"></script>
+<script>
+  gsap.to(window, .7, {
+    scrollTo: 5
+  });
+</script>
 </body>
 </html>

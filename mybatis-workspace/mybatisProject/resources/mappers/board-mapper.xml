@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardMapper">
+	<resultMap type="board" id="boardResultSet">
+		<result column="BOARD_NO" property="boardNo"/>
+		<result column="BOARD_TITLE" property="boardTitle"/>
+		<result column="BOARD_CONTENT" property="boardContent"/>
+		<result column="BOARD_WRITER" property="boardWriter"/>
+		<result column="USER_NAME" property="boardWriter"/>
+		<result column="COUNT" property="count"/>
+		<result column="CREATE_DATE" property="createDate"/>
+		<result column="STATUS" property="status"/>
+	</resultMap>
+	
+	<resultMap type="reply" id="replyResultSet">
+		<result column="REPLY_NO" property="replyNo"/>
+		<result column="REPLY_CONTENT" property="replyContent"/>
+		<result column="REF_BNO" property="refBno"/>
+		<result column="REPLY_WRITER" property="replyWriter"/>
+		<result column="USER_NAME" property="replyWriter"/>
+		<result column="CREATE_DATE" property="createDate"/>
+		<result column="STATUS" property="status"/>
+	
+	
+	</resultMap>
+	
+
+  
+  <select id="selectListCount" resultType="int">
+  	SELECT COUNT(*)
+  	FROM BOARD
+  	WHERE STATUS='Y'
+  </select>
+  
+  <select id="selectList" resultMap="boardResultSet">
+  	SELECT BOARD_NO, BOARD_TITLE, USER_NAME, COUNT, CREATE_DATE
+  	FROM BOARD B
+  	JOIN MEMBER M ON(B.BOARD_WRITER= M.USER_NO)
+  	WHERE B.STATUS='Y'
+  	ORDER BY BOARD_NO DESC
+  </select>
+  
+  <update id="increaseCount" parameterType="int">
+  	UPDATE BOARD
+  	SET COUNT = COUNT+1
+  	WHERE BOARD_NO = #{boardNo}
+  	AND STATUS='Y'
+  </update>
+  
+  <select id="detailBoard" resultMap="boardResultSet">
+  	SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, USER_NAME, COUNT, CREATE_DATE
+  	FROM BOARD B
+  	JOIN MEMBER M ON(B.BOARD_WRITER = M.USER_NO)
+  	WHERE BOARD_NO = #{boardNo} AND B.STATUS ='Y'
+  
+  </select>
+  
+  <select id="selectReplyList" resultMap="replyResultSet">
+  	SELECT REPLY_NO, REPLY_CONTENT, USER_NAME, CREATE_DATE
+  	FROM REPLY R
+  	JOIN MEMBER M ON(R.REPLY_WRITER = M.USER_NO)
+  	WHERE REF_BNO = #{boardNo} AND R.STATUS='Y'
+  	ORDER BY CREATE_DATE DESC
+  </select>
+  
+  <insert id="insertReply" parameterType="reply">
+  	INSERT INTO REPLY(REPLY_NO, REPLY_CONTENT, REF_BNO, REPLY_WRITER, CREATE_DATE, STATUS)
+  	VALUES(SEQ_RNO.NEXTVAL, #{replyContent}, #{refBno}, #{replyWriter},SYSDATE,'Y')
+  </insert>
+  
+  <select id="searchListCount" resultType="int">
+  	SELECT COUNT(*)
+  	FROM BOARD B
+  	JOIN MEMBER M ON(B.BOARD_WRITER = M.USER_NO)
+  	WHERE B.STATUS='Y'
+  		<if test="type == 'writer'">
+  			AND INSTR(USER_NAME,#{keyword})>0
+  		</if>
+  		<if test="type == 'title'">
+  			AND INSTR(BOARD_TITLE,#{keyword})>0
+  		</if>
+  		<if test="type == 'content'">
+  			AND INSTR(BOARD_CONTENT,#{keyword})>0
+  		</if>
+  </select>
+  
+  <select id="searchList" resultMap="boardResultSet">
+    SELECT BOARD_NO, BOARD_TITLE, USER_NAME, COUNT, CREATE_DATE
+  	FROM BOARD B
+  	JOIN MEMBER M ON(B.BOARD_WRITER= M.USER_NO)
+  	WHERE B.STATUS='Y'
+  		<if test="type == 'writer'">
+  			AND INSTR(USER_NAME,#{keyword})>0
+  		</if>
+  		<if test="type == 'title'">
+  			AND INSTR(BOARD_TITLE,#{keyword})>0
+  		</if>
+  		<if test="type == 'content'">
+  			AND INSTR(BOARD_CONTENT,#{keyword})>0
+  		</if>
+  	ORDER BY BOARD_NO DESC
+  </select>
+</mapper>

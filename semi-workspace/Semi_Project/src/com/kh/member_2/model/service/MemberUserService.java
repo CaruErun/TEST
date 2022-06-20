@@ -80,4 +80,15 @@ public class MemberUserService {
 		
 	}
 
+	public void dormancyManage() {
+		Connection conn = getConnection();
+		
+		int result = new MemberUserDao().dormancyManage(conn);
+		
+		if(result>0) commit(conn);
+		else rollback(conn);
+		close(conn);
+		
+	}
+
 }

@@ -40,7 +40,10 @@ public class MemberUserDao {
 			
 			if(rset.next()) {
 				mu = new MemberUser(rset.getInt("USER_NO"),
+						rset.getString("USER_ID"),
 						rset.getString("USER_NAME"),
+						rset.getString("EMAIL"),
+						rset.getString("PHONE"),
 						rset.getString("U_STATUS"),
 						rset.getDate("BAN_DATE"));
 			}
@@ -159,7 +162,6 @@ public class MemberUserDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		String sql = prop.getProperty("returnMember");
-		System.out.println(userNo);
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, userNo);
@@ -178,6 +180,24 @@ public class MemberUserDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		String sql = prop.getProperty("banManage");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
+
+	public int dormancyManage(Connection conn) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = prop.getProperty("dormancyManage");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

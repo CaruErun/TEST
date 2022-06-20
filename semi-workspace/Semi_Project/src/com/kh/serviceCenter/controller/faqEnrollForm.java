@@ -36,7 +36,7 @@ public class faqEnrollForm extends HttpServlet {
 		String faqContent = request.getParameter("faqContent");
 		FAQ f = new FAQ(faqNo, faqCate, faqTitle, faqContent);
 		request.setAttribute("faq", f);
-		request.getRequestDispatcher("/views/admin/serviceCenter/d_1_1.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/admin/serviceCenter/FAQEnroll.jsp").forward(request, response);
 	}
 
 	/**

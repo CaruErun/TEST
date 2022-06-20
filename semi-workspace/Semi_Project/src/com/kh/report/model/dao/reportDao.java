@@ -13,7 +13,6 @@ import java.util.Properties;
 
 import com.kh.common.PageInfo;
 import com.kh.memManage.model.dao.memManageDao;
-import com.kh.memManage.model.vo.Member;
 import com.kh.report.model.vo.Report;
 
 public class reportDao {
@@ -284,6 +283,24 @@ public class reportDao {
 			close(pstmt);
 		}
 		return listCount;
+	}
+	public int ajaxReportUuser(Connection conn, String userId, String repoter) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = prop.getProperty("ajaxReportUuser");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			pstmt.setString(2, repoter);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
 	}
 
 

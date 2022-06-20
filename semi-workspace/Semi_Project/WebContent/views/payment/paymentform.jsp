@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DS SPORTS</title>
 <style>
 span {
 	width: 60px;

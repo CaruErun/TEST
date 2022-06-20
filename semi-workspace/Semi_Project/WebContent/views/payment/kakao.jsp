@@ -1,25 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@page import="java.util.ArrayList, com.kh.basket1.model.vo.Basket,com.kh.member_2.model.vo.MemberUser, com.kh.basket1.model.service.basket1Service, java.net.URLEncoder" %>
 <%
  //   String name = (String)request.getAttribute("name");
  //   String email = (String)request.getAttribute("email");
  //  String phone = (String)request.getAttribute("phone");
  //  String address = (String)request.getAttribute("address");
   //  int totalPrice = (int)request.getAttribute("totalPrice");
+  	 MemberUser loginUser = (MemberUser)request.getSession().getAttribute("loginUser");
      String name = (String)request.getParameter("name");
      String email = (String)request.getParameter("email");
      String phone = (String)request.getParameter("phone");
      String address = (String)request.getParameter("address");
      String stotalPrice = (String)request.getParameter("totalPrice");
+     if(request.getAttribute("sw")!=null){
+         name = String.valueOf(request.getAttribute("name"));
+         email = String.valueOf(request.getAttribute("email"));
+         phone = String.valueOf(request.getAttribute("phone"));
+         address = String.valueOf(request.getAttribute("address"));
+         stotalPrice = String.valueOf(request.getAttribute("totalPrice"));
+     }
+     
      int totalPrice = Integer.parseInt(stotalPrice);
-    
      System.out.println("name: "+name);
     System.out.println("email: "+email);
      System.out.println("phone: "+phone);
      System.out.println("address: "+address);
      System.out.println("stotalPrice: "+stotalPrice);
      System.out.println("totalPrice: "+totalPrice);
- 
 %>
 
 
@@ -27,22 +36,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>kakao</title>
+<title>DS SPORTS</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
     <script>
     $(function(){
+
+
         var IMP = window.IMP; // 생략가능
         IMP.init('imp76914986'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
         var msg;
-        
         IMP.request_pay({
             pg : 'html5_inicis',
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
-            name : 'KH Books 도서 결제',
+            name : '당산 스포츠 결제건',
             amount : <%=totalPrice%>,
             buyer_email : '<%=email%>',
             buyer_name : '<%=name%>',
@@ -77,14 +87,16 @@
                         //[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
                     }
                 });
+          
                 //성공시 이동할 페이지
-               window.location.href="/Semi/views/semi/main.jsp";
-               <%--  location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg; --%>
-            } else {
+                
+                window.location.href="/Semi/orderCon.or?order=<%=loginUser.getUserNo()%>";
+                    <%--  location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg; --%>
+                } else {
                 msg = '결제에 실패하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;
                 //실패시 이동할 페이지
-                location.href="<%=request.getContextPath()%>/order/payFail";
+                location.href="<%=request.getContextPath()%>/orderCan.or?order=<%=loginUser.getUserNo()%>";
                 alert(msg);
             }
         });

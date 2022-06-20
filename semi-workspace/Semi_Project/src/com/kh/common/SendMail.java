@@ -40,19 +40,11 @@ public class SendMail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String email = request.getParameter("email");
-
-		// 먼저 아이디로 회원정보를 받아오고 가져온 데이터에서 email값을 비교하여 존재하지 않으면 인증메일 보내지 못함
-		/*
-		 * Member m = new MemberService().memberLogin(memberId); if(m==null ||
-		 * !m.getEmail().equals(email)) { req.setAttribute("msg",
-		 * "아이디나 이메일 정보가 맞지 않습니다"); req.setAttribute("loc", "/member/searchPw");
-		 * req.getRequestDispatcher("/views/common/msg.jsp").forward(req, resp); return;
-		 * }
-		 */
+		
 		// mail server 설정
 		String host = "smtp.naver.com";
 		String user = "alsrbwlw@naver.com"; // 자신의 네이버 계정
-		String password = "7550!5291";// 자신의 네이버 패스워드
+		String password = "7550!!5291";// 자신의 네이버 패스워드
 
 		// 메일 받을 주소
 		/* String to_email = m.getEmail(); */
@@ -88,7 +80,6 @@ public class SendMail extends HttpServlet {
 			}
 		}
 		String AuthenticationKey = temp.toString();
-		System.out.println(AuthenticationKey);
 
 		Session session1 = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
@@ -105,7 +96,7 @@ public class SendMail extends HttpServlet {
 			// 메일 제목
 			msg.setSubject("당산스포츠 인증 메일입니다.");
 			// 메일 내용
-			msg.setText("인증 번호는 :" + temp);
+			msg.setText("인증 번호 :" + temp);
 
 			Transport.send(msg);
 			System.out.println("이메일 전송");
@@ -123,12 +114,6 @@ public class SendMail extends HttpServlet {
 //		HttpSession session = request.getSession();
 //		session.setAttribute("AuthenticationKey", AuthenticationKey);
 //		session.setAttribute("ConEmail", email);
-		// 패스워드 바꿀때 뭘 바꿀지 조건에 들어가는 id
-		/*
-		 * req.setAttribute("id", memberId);
-		 * req.getRequestDispatcher("/views/login_myPage/searchPasswordEnd.jsp").forward
-		 * (req, resp);
-		 */
 	}
 
 	/**

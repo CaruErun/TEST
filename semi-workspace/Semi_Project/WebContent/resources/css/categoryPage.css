@@ -5,99 +5,109 @@ body{
   font-size: 16px;
   line-height: 1.4;
   font-family: sans-serif;
-  position: relative;
+  
   left: 34px;
 }
-img {
- display: block;
-}
+
 
 /* header */
 header{
-  width: 100%;
-  height: 200px;
+  width:95%;
+  height: 250px;
+  margin:auto;
+  position: relative;
+  top: 0%;
 }
 header .inner{
-  position: relative;
-  width: 1100px;
-  height: 120px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin:auto;
 }
 header .inner .logo{
-  height: 90px;
+  height: 40px;
   position: absolute;
-  top: 60px;
-  bottom: 0;
-  left: 60px;
+  top: 40px;
+  
 }
-header .top-navi{
- 
-  right: 170px;
-  top: 10px;
+header .inner .logo img{
+  height: 80px;
   position: absolute;
   
 }
+header .top-navi{
+  height: 80px;
+  right: 0px;
+  top: 30px;
+  position: absolute;
+  width: 400px;
+  right: 30px;
+}
 header .top-navi ul.navi {
-  display: flex;
- 
+  width: 100%;
+  height: 50px;
+  padding: 0;
   
 }
 header .top-navi ul.navi li{
-  position: relative;
   list-style: none;
-
+  font-size: 10px;
+  width: 50%;
+  display: inline-block;
+  height: 40px;
+  width: 23%;
+  
 }
 header .top-navi ul.navi li::before{
   content: "";
-  width: 1px;
-  height: 12px;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
+
 }
 header .top-navi ul.navi li a{
-  font-size: 18px;
-  padding: 10px 15px;
-  display: block;
+  font-size: 16px;
+  
   color: black;
   text-decoration-line: none;
+  margin: 5px;
 }
 header .top-navi ul.navi li a:hover{
   
-  color: antiquewhite;
+  color: brown
 }
 header .search{
   position: absolute;
-  padding: 30px;
-  height: 50px;
-  width: 900px;
-  left: 570px;
-  top: 75px;
+  height: 35px;
+  width: 700px;
+  bottom: 50px;
+  left: 21%;
   
 }
 header .search .material-icons{
-  font-size: 44px;
+  font-size: 37px;
   position: absolute;
-  right: 120px;
-  top: 35px;
-
-
+  right: 0;
+  bottom: -2px;
+}
+header .search #search-button{
+  border-radius: 7px;
+}
+header .search #search-button:focus{
+  border: 3px solid lightsalmon;
 }
 header .search>input{
   height: inherit;
-  width: 800px;
+  width: 700px;
   left: inherit;
-  
 }
 header .order{
-  height: 100px;
-  width: 200px;
+  height: 50px;
+  width: 100px;
   position: absolute;
   right: 200px;
-  top: 110px;
+  top: 165px;
 }
 header .order #order a .material-symbols-outlined{
-  font-size: 44px;
+  font-size: 37px;
   position: absolute;
   right: 100px;
   color: #333;
@@ -105,13 +115,17 @@ header .order #order a .material-symbols-outlined{
 
 }
 header .order #favor a .material-symbols-outlined{
-  font-size: 44px;
+  font-size: 37px;
   position: absolute;
   color: #333;
 }
-/* 네비게이터 시작 */
+
 .navigator{
   margin: 40px 0;
+  height: 10%;
+  width: 100%;
+  position: relative;
+
 }
 #navi{
   list-style-type: none;
@@ -119,19 +133,12 @@ header .order #favor a .material-symbols-outlined{
 }
 #navi>li{
 
-  /*방법 1 + #navi a{ transform : scale(1); 추가하기}*/
-  /* float: left; */
-  /* height: 100%;
-  width: 20%;
-  text-align: center; */
-
-  /*방법 2*/
   display: inline-block;
   width: 15%;
   height: 42px;
   text-align: center;
-
-  vertical-align: middle;/*inline요소들의 수직정렬 기준*/
+margin: auto;
+  vertical-align: top;/*inline요소들의 수직정렬 기준*/
   background-color: lightskyblue;
   border: 1px solid;
   
@@ -144,46 +151,61 @@ header .order #favor a .material-symbols-outlined{
   font-weight: bold;
   display: block;
   width: 100%;
-  line-height: 41px;
+  
 
   /* transform: scale(1); */
 }
 #navi a:hover{
-  font-size: 30px;
+  font-size: 20px;
   color: brown;
 }
+/*
 #navi>li>ul{
   position: relative;
-  margin: auto;
   list-style-type: none;
   padding: 0px;
   font-size: 43px;
   text-align: center;
-  display: none;
-}
-.navigator #navi1-1{
   display: block;
-}
-#navi>li:hover+ul{
-  display: block;
+  background-color:darkblue;
 }
 #navi>li>ul a{
   
   font-size: 23px;
   margin: 30px 0;
   text-align: center;
+}
+#navi>li>ul a:hover{
+  font-size: 20px;
   display : block;
 }
 
-
-#navi>li>a:hover+#navi2-1 {
+#navi>li>a:hover+ul {
   /* 평소에는 안보여지다가 마우스가 올라가는 순간 펼쳐지는 효과 부여 2단계 */
-  display : block;
+  /* display : block; */
  /* 메인메뉴에만 마우스가 올라갈 때 유지가 되므로 */
-background-color: lightslategray;
-
-border: 1px solid black;
-
+/* }*/ 
+.list{
+  
+  width: 150px;
+  height: 300px;
+  position: absolute;
+  margin-left: 200px;
+  margin-top: 50px;
+}
+.list>div{
+  background-color: lightsteelblue;
+  width: 100%;
+  height: 33%;
+  border: 1px solid black;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 5%;
+}
+.list>div>h3{
+  
+  margin-top: 40px;
+  font-size: 20px;
 }
 
 
@@ -191,25 +213,24 @@ border: 1px solid black;
 .category{
   
   position: absolute;
-  width: 1400px;
+  width: 1200px;
   height: 400px;
   margin: 50px 0;
-  
-  margin: 40px;
+  z-index: -1;
   right: 120px;
 }
 .category ul{
   
   height: 50%;
 }
-.category li{
+.category div{
   display: inline-block;
   
   height: 100%;
   width: 18%;
   border: 1px solid black;
 }
-.category li>img{
+.category div>img{
   height: inherit;
 }
 /* 두번째 카테고리 나열 */
@@ -262,3 +283,5 @@ border: 1px solid black;
 .category li>img{
   height: inherit;
 }
+
+/* 카테고리 2차 div*/

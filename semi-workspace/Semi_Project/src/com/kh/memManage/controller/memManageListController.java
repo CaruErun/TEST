@@ -48,10 +48,10 @@ public class memManageListController extends HttpServlet {
 		
 		ArrayList<Member> mList = new memManageService().selectMemList(pi);
 		if(mList!=null) {
-		request.setAttribute("adCate",3);
+		request.setAttribute("adCate",7);
 		request.setAttribute("pi",pi);
 		request.setAttribute("mList", mList);
-		request.getRequestDispatcher("/views/admin/memManage/c_1.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/admin/memManage/memManageList.jsp").forward(request, response);
 		}
 		
 		

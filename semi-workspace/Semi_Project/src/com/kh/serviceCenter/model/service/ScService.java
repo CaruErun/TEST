@@ -21,11 +21,29 @@ public class ScService {
 		close(conn);
 		return listCount;
 	}
+	
+	public int selectUserFAQListCount() {
+		Connection conn = getConnection();
+		
+		int listCount = new ScDao().selectUserFAQListCount(conn);
+		
+		close(conn);
+		return listCount;
+	}
 
 	public ArrayList<FAQ> selectFAQList(PageInfo pi) {
 		Connection conn = getConnection();
 		
 		ArrayList<FAQ> FAQList = new ScDao().selectFAQList(conn,pi);
+		
+		close(conn);
+		return FAQList;
+	}
+	
+	public ArrayList<FAQ> selectUserFAQList(PageInfo pi) {
+		Connection conn = getConnection();
+		
+		ArrayList<FAQ> FAQList = new ScDao().selectUserFAQList(conn,pi);
 		
 		close(conn);
 		return FAQList;
@@ -142,6 +160,70 @@ public class ScService {
 		
 		close(conn);
 		return qList;
+	}
+
+	public int UserSearchFAQCount(int search, String scContent) {
+		Connection conn = getConnection();
+		int listCount = 0;
+		if(search==1) {//제목
+			listCount = new ScDao().UserSearchFAQTitleCount(conn,scContent);
+		}else {//내용
+			listCount = new ScDao().userSerachFAQContentCount(conn,scContent);
+		}
+		close(conn);
+		return listCount;
+	}
+
+	public ArrayList<FAQ> selectSearchTitleList(PageInfo pi, String scContent) {
+		Connection conn = getConnection();
+		
+		ArrayList<FAQ> list = new ScDao().selectSearchTitleList(conn,pi,scContent);
+		
+		close(conn);
+		
+		return list;
+	}
+
+	public ArrayList<FAQ> selectSearchContentList(PageInfo pi, String scContent) {
+		Connection conn = getConnection();
+		
+		ArrayList<FAQ> list = new ScDao().selectSearchContentList(conn,pi,scContent);
+		
+		close(conn);
+		
+		return list;
+	}
+
+	public FAQ userDetailFAQ(int faqNo) {
+		Connection conn = getConnection();
+		
+		FAQ f  = new ScDao().userDetailFAQ(conn,faqNo);
+		
+		close(conn);
+		
+		return f;
+		
+	}
+	
+	public ArrayList<QNA> selectUserQNA(String userId) {
+		Connection conn = getConnection();
+		
+		ArrayList<QNA> qList = new ScDao().selectUserQNA(conn, userId);
+		
+		close(conn);
+		return qList;
+	}
+
+	public int insertUserQNA(QNA q) {
+		Connection conn = getConnection();
+		
+		int result = new ScDao().insertUserQNA(conn, q);
+		
+		if(result>0) commit(conn);
+		else rollback(conn);
+		
+		close(conn);
+		return result;
 	}
 
 }

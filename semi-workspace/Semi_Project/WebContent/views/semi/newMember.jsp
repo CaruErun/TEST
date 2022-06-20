@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DS SPORTS</title>
 <link rel="stylesheet" href="/Semi/resources/css/login.css">
 </head>
 <body>
@@ -225,7 +225,11 @@
     			success : function(result){
     				console.log(result);
     				if(result==0){
-	    	    		newMemberUser.click();
+    					if(document.getElementById("emailConfirm1").disabled==true){
+	    	    			newMemberUser.click();
+    					}else{
+    						window.alert("이메일 인증을 완료해주세요");
+    					}
     				}else{
     					window.alert("ID, 이메일, 전화번호 중 이미 가입된 정보가 있습니다. 다시 확인해주세요");
     				}

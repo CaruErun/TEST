@@ -13,7 +13,7 @@ import com.kh.member_2.model.service.MemberUserService;
 /**
  * Servlet implementation class ajaxBanManageController
  */
-@WebServlet("/ajaxBanManage.lo")
+@WebServlet("/ajaxMemberManage.lo")
 public class ajaxBanManageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,6 +30,7 @@ public class ajaxBanManageController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		new MemberUserService().banManage();
+		new MemberUserService().dormancyManage();
 	}
 
 	/**

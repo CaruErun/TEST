@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>index</title>
+<title>DS SPORTS</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
@@ -29,7 +29,6 @@
 
 </head>
 <body>
-	<h2>관리자 시작</h2>
     <!--header 시작-->
         <div id="header">
             <img src="/Semi/views/image/DsSports.png">
@@ -41,31 +40,34 @@
                 <div id="content_1_empty"></div>
                 <table>
                     <tr class="PM">
-                        <td class="left-menu"><a href="#">상품관리</a></td>
+                        <td class="left-menu"><a href="<%=contextPath%>/list.pd?cpage=1">상품관리</a></td>
                         <td><img src="/Semi/views/image/down_triangle.png" class="triangle"></td>
                     </tr>
                     <tr class="PM">
-                        <td colspan="2" class="sub-menu"><a href="/Semi/views/admin/a_1.jsp">등록</a></td>
+                        <td colspan="2" class="sub-menu"><a href="<%=contextPath%>/list.pd?cpage=1">조회</a></td>
                     </tr>
                     <tr class="PM">
+                        <td colspan="2" class="sub-menu"><a href="<%=contextPath%>/categoryList.pd">등록</a></td>
+                    </tr>
+                    <!-- <tr class="PM">
                         <td colspan="2" class="sub-menu"><a href="/Semi/views/admin/a_2.jsp">수정</a></td>
-                    </tr>
-                    <tr class="PM">
-                        <td colspan="2" class="sub-menu"><a href="/Semi/views/admin/a_3.jsp">카테고리수정</a></td>
-                    </tr>
+                    </tr>-->
+                    <!-- <tr class="PM">
+                        <td colspan="2" class="sub-menu"><a href="/Semi/views/admin/product/categoryUpdate.jsp">카테고리수정</a></td>
+                    </tr> -->
 
                     <tr class="SM"> 
-                        <td class="left-menu"><a href="#">쇼핑몰 관리</a></td>
+                        <td class="left-menu"><a href="/Semi/list.oo?cpage=1">쇼핑몰 관리</a></td>
                         <td><img src="/Semi/views/image/down_triangle.png" class="triangle"></td>
                     </tr>
                     <tr class="SM">
-                        <td colspan="2" class="sub-menu"><a href="/Semi/views/admin/b_1.jsp">주문내역 관리</a></td>
+                        <td colspan="2" class="sub-menu"><a href="/Semi/list.oo?cpage=1">주문내역 관리</a></td>
                     </tr>
                     <tr class="SM">
-                        <td colspan="2" class="sub-menu"><a href="/Semi/views/admin/b_2.jsp">공지사항 관리</a></td>
+                        <td colspan="2" class="sub-menu"><a href="<%=contextPath%>/list.no?cpage=1">공지사항 관리</a></td>
                     </tr>
                     <tr class="SM">
-                        <td colspan="2" class="sub-menu"><a href="/Semi/views/admin/b_3.jsp">리뷰 관리</a></td>
+                        <td colspan="2" class="sub-menu"><a href="<%=contextPath%>/list.ro?cpage=1">리뷰 관리</a></td>
                     </tr>
 
                     <tr class="CM">
@@ -188,7 +190,53 @@
         //     }
         // }//변경 종료
 		$(document).ready(function(){
-			if(<%=adCate%>==3){
+			if(<%=adCate%>==1){
+		        var setClass = document.getElementsByClassName('PM');
+		        for(var i=1;i<setClass.length;i++){
+		        	setClass[i].childNodes[1].childNodes[0].style.display='block';
+		        }
+		        setClass[0].childNodes[3].childNodes[0].setAttribute("src","/Semi/views/image/triangle.png");
+		        setClass[0].childNodes[1].childNodes[0].style.color="yellow";
+		        setClass[1].childNodes[1].childNodes[0].style.color="yellow";
+		   	}
+			
+	        if(<%=adCate%>==2){
+	       		var setClass = document.getElementsByClassName('PM');
+	        	for(var i=1;i<setClass.length;i++){
+	        		setClass[i].childNodes[1].childNodes[0].style.display='block';
+	      		}
+	        	setClass[0].childNodes[3].childNodes[0].setAttribute("src","/Semi/views/image/triangle.png");
+	        	setClass[0].childNodes[1].childNodes[0].style.color="yellow";
+	        	setClass[2].childNodes[1].childNodes[0].style.color="yellow";
+	        }
+	        if(<%=adCate%>==4){
+	            var setClass = document.getElementsByClassName('SM');
+	            for(var i=1;i<setClass.length;i++){
+	                    setClass[i].childNodes[1].childNodes[0].style.display='block';
+	                }
+	            setClass[0].childNodes[3].childNodes[0].setAttribute("src","/Semi/views/image/triangle.png");
+	            setClass[0].childNodes[1].childNodes[0].style.color="yellow";
+	            setClass[1].childNodes[1].childNodes[0].style.color="yellow";
+	        }
+	        if(<%=adCate%>==5){
+	                 var setClass = document.getElementsByClassName('SM');
+	                 for(var i=1;i<setClass.length;i++){
+	                         setClass[i].childNodes[1].childNodes[0].style.display='block';
+	                     }
+	                 setClass[0].childNodes[3].childNodes[0].setAttribute("src","/Semi/views/image/triangle.png");
+	                 setClass[0].childNodes[1].childNodes[0].style.color="yellow";
+	                 setClass[2].childNodes[1].childNodes[0].style.color="yellow";
+	             }
+	        if(<%=adCate%>==6){
+	                 var setClass = document.getElementsByClassName('SM');
+	                 for(var i=1;i<setClass.length;i++){
+	                        setClass[i].childNodes[1].childNodes[0].style.display='block';
+	                     }
+	                 setClass[0].childNodes[3].childNodes[0].setAttribute("src","/Semi/views/image/triangle.png");
+	                 setClass[0].childNodes[1].childNodes[0].style.color="yellow";
+	                 setClass[3].childNodes[1].childNodes[0].style.color="yellow";
+	             }
+			if(<%=adCate%>==7){
                 var setClass = document.getElementsByClassName('CM');
                 for(var i=1;i<setClass.length;i++){
                         setClass[i].childNodes[1].childNodes[0].style.display='block';
@@ -197,7 +245,7 @@
                 setClass[0].childNodes[1].childNodes[0].style.color="yellow";
                 setClass[1].childNodes[1].childNodes[0].style.color="yellow";
             }
-	        if(<%=adCate%>==4){
+	        if(<%=adCate%>==8){
 	            var setClass = document.getElementsByClassName('CM');
 	            for(var i=1;i<setClass.length;i++){
 	                    setClass[i].childNodes[1].childNodes[0].style.display='block';
@@ -206,7 +254,7 @@
 	            setClass[0].childNodes[1].childNodes[0].style.color="yellow";
 	            setClass[2].childNodes[1].childNodes[0].style.color="yellow";
 	        }
-	        if(<%=adCate%>==5){
+	        if(<%=adCate%>==9){
 	            var setClass = document.getElementsByClassName('Service');
 	            for(var i=1;i<setClass.length;i++){
 	                setClass[i].childNodes[1].childNodes[0].style.display='block';
@@ -215,7 +263,7 @@
 	            setClass[0].childNodes[1].childNodes[0].style.color="yellow";
 	            setClass[1].childNodes[1].childNodes[0].style.color="yellow";
 	        }
-	        if(<%=adCate%>==6){
+	        if(<%=adCate%>==10){
 	            var setClass = document.getElementsByClassName('Service');
 	            for(var i=1;i<setClass.length;i++){
 	            setClass[i].childNodes[1].childNodes[0].style.display='block';
