@@ -1,6 +1,8 @@
 package com.kh.mybatis.member.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,6 +41,10 @@ public class MemberLoginController extends HttpServlet {
 		
 		t.setUserId(m.getUserId());
 		t.setUserPwd(m.getUserPwd());
+		
+
+		 
+
 		
 		Member loginUser = new MemberServiceImpl().loginMember(t);
 		
