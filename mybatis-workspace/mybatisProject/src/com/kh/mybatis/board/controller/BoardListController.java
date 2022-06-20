@@ -54,13 +54,20 @@ public class BoardListController extends HttpServlet {
 		 
 		// format에 맞게 출력하기 위한 문자열 변환
 		String dTime = "20220621140000";
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 9a93dda7cb66bfda92a36e2916427b4d8f50eaf1
 		try {
 			d = formatter.parse(dTime);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+<<<<<<< HEAD
 		System.out.println(d.getYear());
+=======
+>>>>>>> 9a93dda7cb66bfda92a36e2916427b4d8f50eaf1
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		request.setAttribute("time", d);
