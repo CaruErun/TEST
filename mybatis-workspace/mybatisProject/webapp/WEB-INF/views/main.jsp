@@ -10,5 +10,7 @@
 		
 		<jsp:include page="common/menubar.jsp"/>
 		<a href="test.jsp">123</a>
+
+	
 </body>
 </html>

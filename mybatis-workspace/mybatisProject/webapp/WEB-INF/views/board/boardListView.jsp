@@ -134,7 +134,32 @@
 		</c:if>		
 
         </div>
-        
+        <h1 id="test01"></h1>
+        <h1 id="test02"></h1>
+        <h1 id="test03"></h1>
+        <script>
+        const clock1 = document.querySelector("#test01");
+        const clock2 = document.querySelector("#test02");
+        const clock3 = document.querySelector("#test03");
+    
+
+        function getClock(){
+          const d = new Date();
+          var dd = new Date(${time.year},${time.month},${time.day},${time.hours},${time.minutes},${time.seconds});
+          var ddd = new Date(dd-d);
+          const h = String(dd.getHours() - d.getHours()).padStart(2,"0");
+          const m = String(d.getMinutes()).padStart(2,"0");
+          const s = String(dd.getSeconds() - d.getSeconds()).padStart(2,"0");
+          clock1.innerText = d;
+          clock2.innerText = dd;
+          clock3.innerText = ddd;
+          
+
+        }
+
+        getClock(); //맨처음에 한번 실행
+        setInterval(getClock, 1000); //1초 주기로 새로실행
+        </script>
     </div>
 </body>
 </html>

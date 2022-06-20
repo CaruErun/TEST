@@ -25,9 +25,9 @@
    <!-- typeAlias : VO/DTO 클래스의 풀 클래스명을 단순한 클래스 명으로 사용하기 위해 별칭을 등록할 수 있는 영역 -->
    <typeAliases>
    	<!--<typeAlias alias="member" type="com.kh.mybatis.member.model.vo.Member"/>-->
+   	<typeAlias alias="member" type="com.kh.mybatis.member.model.vo.Member"/>
    	<typeAlias alias="board" type="com.kh.mybatis.board.model.vo.Board"/>
    	<typeAlias alias="reply" type="com.kh.mybatis.board.model.vo.Reply"/>
-    <typeAlias alias="memebr" type="org.kh.member.model.vo.Member"/>
    </typeAliases>
    
    
