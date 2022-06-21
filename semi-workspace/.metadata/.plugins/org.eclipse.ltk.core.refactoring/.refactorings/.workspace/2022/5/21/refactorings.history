@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Delete resource &apos;Semi_Project/WebContent/views/admin-css/user_style_navigator.css&apos;" deleteContents="false" description="Delete resource &apos;Semi_Project/WebContent/views/admin-css/user_style_navigator.css&apos;" element1="/Semi_Project/WebContent/views/admin-css/user_style_navigator.css" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1652604231837"/>
-</session>
