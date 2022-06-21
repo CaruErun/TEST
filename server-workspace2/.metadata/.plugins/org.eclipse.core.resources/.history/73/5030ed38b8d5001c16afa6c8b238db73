@@ -1,5 +1,0 @@
-package ajaxProject.com.kh.model.vo;
-
-public class Member {
-	private String memberName;
-}
