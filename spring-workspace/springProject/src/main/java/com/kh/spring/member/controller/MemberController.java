@@ -199,8 +199,8 @@ public class MemberController {
 		}else {
 			int result = memberService.deleteMember(loginUser.getUserId());
 			if(result>0) {
-				session.removeAttribute("loginUser");
-				session.setAttribute("alertMsg", "성공적으로 회원 탈퇴 처리 되었습니다.");
+				session.invalidate();
+
 			}else {
 				session.setAttribute("alertMsg", "회원 탈퇴 처리에 실패하였습니다 잠시후 다시 시도해주세요");
 			}
